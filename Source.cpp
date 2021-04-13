@@ -17,15 +17,27 @@ void print(ElementalType* element);
 
 int main() {
 	std::vector<Pokemon*> pokemonDeck;
-	pokemonDeck.push_back(new Squirtle);
-	pokemonDeck.push_back(new Wartortle);
-	pokemonDeck.push_back(new Blastoise);
-	pokemonDeck.push_back(new Eevee);
+	//pokemonDeck.push_back(new Squirtle);
+	//pokemonDeck.push_back(new Wartortle);
+	//pokemonDeck.push_back(new Blastoise);
+	//pokemonDeck.push_back(new Eevee);
 
-
-	Pokemon *squirt = new Squirtle;
+	Pokemon* squirt = new Squirtle;
 	ElementalType* s = new Squirtle;
-	squirt->Attack1()->getElementAttackType();
+	std::cout << squirt->getRetreatCost() << std::endl;
+	std::cout << "HP: " << squirt->getMaxHP() << std::endl;
+	std::cout << "Hitpoints: " << squirt->getHitPoints() << std::endl;
+	std::cout << "Hit: 10" << std::endl;
+	squirt->Hit(10);
+	std::cout << "Hitpoints: " << squirt->getHitPoints() << std::endl;
+	std::cout << "Heal: 5" << std::endl;
+	squirt->Heal(5);
+	std::cout << "Hitpoints: " << squirt->getHitPoints() << std::endl;
+
+	std::cout << "Attack: " << squirt->Attack1()->getAttackName() << std::endl;
+	squirt->getIsPoisoned();
+	squirt->Attack1();
+	Squirtle s;
 
 	return 0;
 }
