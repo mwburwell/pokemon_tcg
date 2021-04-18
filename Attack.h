@@ -28,8 +28,8 @@ public:
 	/// <param name = "attackName"> - The name of the Attack</param>
 	/// <param name = "desc"> - The description of the Attack</param>
 	/// <param name = "hitPoints"> - Number of hitpoints the Attack causes</param>
-	/// <param name = "elementCost"> - Required number of Elemental specific energy cards that need to be attached to the pokemon to use this Attack</param>
-	/// <param name = "colorlessCost"> - Required number of additional energy cards of ANY type that need to be attached to the pokemon to use this Attack</param>
+	/// <param name = "elCost"> - Required number of Elemental specific energy cards that need to be attached to the pokemon to use this Attack</param>
+	/// <param name = "coCost"> - Required number of additional energy cards of ANY type that need to be attached to the pokemon to use this Attack</param>
 	/// <param name = "attackElement"> - The element type of the Attack</param>
 	Attack(std::string attackName, std::string desc, int hitpoints, int elCost, int coCost, Element attackElement) {
 		this->attackName = attackName;
@@ -60,7 +60,6 @@ public:
 		effect = statusEffect;
 	}
 
-	/* get All of the attributes for the attack */
 	std::string getAttackName() { return this->attackName; }
 	int getHitpoints() { return this->hitpoints; }
 	Element getElementAttackType() { return this->attackElement; }
@@ -70,7 +69,6 @@ public:
 	StatusEffects getStatusEffects() { return this->effect; }
 
 };
-
 
 class Bubble : public Attack {
 public:
@@ -96,5 +94,19 @@ public:
 	/// <param name = "colorlessCost"> - Required number of additional energy cards of ANY type that need to be attached to the pokemon to use this Attack</param>
 	WaterGun(int hitPoints, int elementCost, int colorlessCost) :
 		Attack("Water Gun", "Shoots Water Gun",
+			hitPoints, elementCost, colorlessCost, Element::WATER) {}
+};
+
+
+class Surf : public Attack {
+public:
+	/// <summary>
+	/// Surf - derived class of Attack
+	/// </summary>
+	/// <param name = "hitPoints"> - Number of hitpoints the Attack causes</param>
+	/// <param name = "elementCost"> - Required number of Elemental specific energy cards that need to be attached to the pokemon to use this Attack</param>
+	/// <param name = "colorlessCost"> - Required number of additional energy cards of ANY type that need to be attached to the pokemon to use this Attack</param>
+	WaterGun(int hitPoints, int elementCost, int colorlessCost) :
+		Attack("Surf", "Cowabunga",
 			hitPoints, elementCost, colorlessCost, Element::WATER) {}
 };

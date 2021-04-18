@@ -36,7 +36,7 @@ int main() {
 
 	std::cout << "Attack: " << squirt->Attack1()->getAttackName() << std::endl;
 	squirt->getIsPoisoned();
-	squirt->Attack1();
+	squirt->Attack1()->getColorlessTypeCost();
 	Squirtle s;
 
 	return 0;
