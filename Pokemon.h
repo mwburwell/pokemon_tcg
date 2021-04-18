@@ -235,8 +235,8 @@ public:
 	~Wartortle() {
 		delete bubble;
 		delete surf;
-		Bubble = NULL;
-		Surf = NULL;
+		bubble = NULL;
+		surf = NULL;
 	}
 
 	Attack* Attack1() { return this->bubble; }
@@ -286,7 +286,7 @@ public:
 class Eevee : public Basic, public Colorless {
 private:
 public:
-	Eevee() : Basic(133, "Eevee", 80, 1), Colorless::Colorless(Element::FIGHTING) {
+	Eevee() : Basic(133, "Eevee", 80, 1), Colorless(Element::FIGHTING) {
 	}
 	~Eevee() {
 	}
