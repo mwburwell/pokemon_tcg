@@ -1,10 +1,8 @@
 /***************************************************************************************************************************
- Class:  CSCI201-0CC-C1-202030-VI-16R
- Program: Pokemon The Card Game
- Instructor:  Kristopher Roberts
- Auther:  Michael Burwell
- Date:  04/10/2021
-****************************************************************************************************************************/
+ Class:			CSCI201-0CC-C1-202030-VI-16R
+ Program:		Pokemon The Card Game
+ Instructor:	Kristopher Roberts
+ ***************************************************************************************************************************/
 /****************************************************************************************************************************
 /////////////////////								Elemental Types		 								/////////////////////
 ****************************************************************************************************************************/
@@ -69,12 +67,13 @@ public:
 
 
 /*******************************************************************************************
- * Water Type Pokemon
- * Usual Weakness:  Lightning       Resistance: NONE
+ Water Type Pokemon
+ Usual Weakness:  Lightning       
+ Resistance: NONE
  ******************************************************************************************/
 class Water : public ElementalType {
 public:
-	Water()
+	Water
 		: ElementalType(Element::WATER, Element::LIGHTNING, Element::NONE) {}
 
 	Water(Element weak)
@@ -93,8 +92,9 @@ public:
 
 
 /*******************************************************************************************
- * Fighting Type Pokemon
- * Usual Weakness:  {GRASS, PSYCHIC, WATER}       Resistance: NONE
+ Fighting Type Pokemon
+ Usual Weakness:  {GRASS, PSYCHIC, WATER}       
+ Resistance: NONE
  ******************************************************************************************/
 class Fighting : public ElementalType {
 public:
@@ -109,8 +109,9 @@ public:
 
 
 /*******************************************************************************************
- * PSYCHIC Type Pokemon
- * Usual Weakness:  PSYCHIC       Resistance: NONE
+ PSYCHIC Type Pokemon
+ Usual Weakness:  PSYCHIC       
+ Resistance: NONE
  ******************************************************************************************/
 class Psychic : public ElementalType {
 public:
@@ -133,8 +134,9 @@ public:
 
 
 /*******************************************************************************************
- * DARKNESS Type Pokemon
- * Usual Weakness:  FIGHTING       Resistance: PSYCHIC
+ DARKNESS Type Pokemon
+ Usual Weakness:  FIGHTING       
+ Resistance: PSYCHIC
  ******************************************************************************************/
 class Darkness : public ElementalType {
 public:
@@ -157,8 +159,9 @@ public:
 
 
 /*******************************************************************************************
- * METAL Type Pokemon
- * Usual Weakness:  FIRE       Resistance: WATER
+ METAL Type Pokemon
+ Usual Weakness:  FIRE       
+ Resistance: WATER
  ******************************************************************************************/
 class Metal : public ElementalType {
 public:
@@ -181,8 +184,9 @@ public:
 
 
 /*******************************************************************************************
- * GRASS Type Pokemon
- * Usual Weakness:  FIRE       Resistance: WATER
+ GRASS Type Pokemon
+ Usual Weakness:  FIRE       
+ Resistance: WATER
  ******************************************************************************************/
 class Grass : public ElementalType {
 public:
@@ -205,8 +209,9 @@ public:
 
 
 /*******************************************************************************************
- * LIGHTNING Type Pokemon
- * Usual Weakness:  FIGHTING       Resistance: NONE
+ LIGHTNING Type Pokemon
+ Usual Weakness:  FIGHTING       
+ Resistance: NONE
  ******************************************************************************************/
 class Lightning : public ElementalType {
 public:
@@ -227,8 +232,9 @@ public:
 };
 
 /*******************************************************************************************
- * COLORLESS Type Pokemon
- * Usual Weakness:  {FIGHTING, LIGHTNING, NONE}       Resistance: NONE
+ COLORLESS Type Pokemon
+ Usual Weakness:  {FIGHTING, LIGHTNING, NONE}       
+ Resistance: NONE
  ******************************************************************************************/
 class Colorless : public ElementalType {
 public:
@@ -241,8 +247,9 @@ public:
 };
 
 /*******************************************************************************************
- * DRAGON Type Pokemon
- * Usual Weakness:  {FAIRY, DRAGON}       Resistance: NONE
+ DRAGON Type Pokemon
+ Usual Weakness:  {FAIRY, DRAGON}       
+ Resistance: NONE
  ******************************************************************************************/
 class Dragon : public ElementalType {
 public:
@@ -255,8 +262,9 @@ public:
 };
 
 /*******************************************************************************************
- * FAIRY Type Pokemon
- * Usual Weakness:  METAL       Resistance: DARKNESS
+ FAIRY Type Pokemon
+ Usual Weakness:  METAL       
+ Resistance: DARKNESS
  ******************************************************************************************/
 class Fairy : public ElementalType {
 public:

@@ -1,11 +1,9 @@
 /***************************************************************************************************************************
- Class:  CSCI201-0CC-C1-202030-VI-16R
- Program: Pokemon The Card Game
- Instructor:  Kristopher Roberts
- Auther:  Michael Burwell
- Date:  04/10/2021
-****************************************************************************************************************************/
-/****************************************************************************************************************************
+ Class:			CSCI201-0CC-C1-202030-VI-16R
+ Program:		Pokemon The Card Game
+ Instructor:	Kristopher Roberts
+ ***************************************************************************************************************************/
+ /****************************************************************************************************************************
 /////////////////////								Pokemon Header File									/////////////////////
 ****************************************************************************************************************************/
 #pragma once
@@ -13,9 +11,7 @@
 #include <string>
 #include <vector>
 #include "ElementalType.h"
-#include "Attack.h"
 #include "Enumerators.h"
-#include "Card.h"
 
 using namespace std;
 
@@ -42,12 +38,12 @@ public:
 		this->cardType = type;
 		setRetreatCost(retreatCost);
 		setHitPoints(0);
+		setIsPoisoned(false);
+		setIsAsleep(false);
+		setIsBurnt(false);
+		setIsParalyzed(false);
+		setIsConfused(false);
 		this->statusIsAffected = false;
-		this->isPoisoned = false;
-		this->isAsleep = false;
-		this->isBurnt = false;
-		this->isConfused = false;
-		this->isParalyzed = false;
 	}
 	~Pokemon() {
 		delete this;
@@ -82,7 +78,7 @@ public:
 		this->hitPoints += hit;
 	}
 	void Heal(int healingItem) {
-		/* So that the Pokemon does not heal less than 0 */
+		/* So that the Pokemon does not heal less than 0 hitpoints */
 		if (healingItem > getHitPoints())
 			this->hitPoints -= (healingItem - getHitPoints());
 		else
@@ -131,13 +127,16 @@ public:
 
 };
 
-
-// /////////////////////////////////////////////////////////////// <summary> ///////////////////////////////////////////////////////////////
-//										Second Set of Base class for three separte types of Pokemon Cards 
-// ////////////////////////////////////////////////////////////// </summary> ///////////////////////////////////////////////////////////////
 class Basic : public Pokemon {
 private:
 public:
+	/// <summary>
+	/// Basic Pokemon Derived class
+	/// </summary>
+	/// <param name="cardIDNumber">: The ID number of the Card</param>
+	/// <param name="name">: The name of the Pokemon </param>
+	/// <param name="maxHP">: The max HP of the Pokemon</param>
+	/// <param name="retreatCost">: The cost to retreat </param>
 	Basic(int cardIDNumber, std::string name, int maxHP, int retreatCost) : Pokemon(cardIDNumber, name, maxHP, retreatCost, PokemonCardType::BASIC) {
 
 	}
@@ -150,7 +149,14 @@ public:
 class Stage_1 : public Pokemon {
 private:
 public:
-	Stage_1(int cardIDNumber, std::string name, int maxHP, int retreatCost) : Pokemon(cardIDNumber, name, maxHP, retreatCost, PokemonCardType::EVOLUTION) {
+	/// <summary>
+	/// Stage 1 evolution type
+	/// </summary>
+	/// <param name="cardIDNumber">:  The ID number of the Card</param>
+	/// <param name="name">:  The name of the Pokemon</param>
+	/// <param name="maxHP">:  The max HP of the Pokemon</param>
+	/// <param name="retreatCost">:  The cost to retreat</param>
+	Stage_1(int cardIDNumber, std::string name, int maxHP, int retreatCost) : Pokemon(cardIDNumber, name, maxHP, retreatCost, PokemonCardType::STAGE_1) {
 
 	}
 	virtual Attack* Attack1() = 0;
@@ -162,136 +168,17 @@ public:
 class Stage_2 : public Pokemon {
 private:
 public:
-	Stage_2(int cardIDNumber, std::string name, int maxHP, int retreatCost) : Pokemon(cardIDNumber, name, maxHP, retreatCost, PokemonCardType::SPECIAL) {
+	/// <summary>
+	/// Stage 2 evolution Pokemon
+	/// </summary>
+	/// <param name="cardIDNumber">:  The ID number of the Card</param>
+	/// <param name="name">:  The name of the Pokemon</param>
+	/// <param name="maxHP">:  The maximum HP of the Pokemon</param>
+	/// <param name="retreatCost">:  The retreat cost of the Pokemon</param>
+	Stage_2(int cardIDNumber, std::string name, int maxHP, int retreatCost) : Pokemon(cardIDNumber, name, maxHP, retreatCost, PokemonCardType::STOGE_2) {
 
 	}
 	virtual Attack* Attack1() = 0;
 	virtual Attack* Attack2() = 0;
 	virtual Attack* Attack3() = 0;
-
-};
-
-
-
-///////////////////////////////////////////////////////////////// <summary> ///////////////////////////////////////////////////////////////
-///																DERIVED POKEMON
-///////////////////////////////////////////////////////////////// </summary> //////////////////////////////////////////////////////////////
-
-/// <summary>
-/// <para>Squirtle - BASIC </para>
-/// <para>Max HP: 50</para>
-/// <para>Attack1 - Bubble, 0 hitpoints, 1 water, 0 colorlesss, can cause paralysis</para>
-/// <para>Attack2 - WaterGun, 20 hitpoints, 1 water, 1 colorless</para>
-/// <para>Element Type: Water</para>
-/// <para>Weakness: Lightning</para>
-/// <para>Resistance: None</para>
-/// </summary>
-/// <param name = "None"> None </param>
-/// <returns> A Squirtle </returns>
-class Squirtle : public Basic, public Water {
-private:
-	Attack* bubble;
-	Attack* waterGun;
-public:
-	/// <param name = "None"> No parameters </param>
-	Squirtle() : Basic(7, "Squirtle", 50, 1) {
-		this->bubble = new Bubble(0, 1, 0);
-		this->waterGun = new WaterGun(20, 1, 1);
-		Attack s();
-	}
-	~Squirtle() {
-		delete bubble;
-		delete waterGun;
-		bubble = NULL;
-		waterGun = NULL;
-	}
-
-	Attack* Attack1() { return this->bubble; }
-	Attack* Attack2() { return this->waterGun; }
-	Attack* Attack3() { return NULL; }
-};
-
-/// <summary>
-/// <para>Wartortle - STAGE_1 </para>
-/// <para>Max HP: 80</para>
-/// <para>Attack1 - Bubble, 20 hitpoints, 1 water, 1 colorlesss, can cause paralysis</para>
-/// <para>Attack2 - WaterGun, 50 hitpoints, 1 water, 2 colorless</para>
-/// <para>Attack3 - NULL</para>
-/// <para>Element Type: Water</para>
-/// <para>Weakness: Lightning</para>
-/// <para>Resistance: None</para>
-/// </summary>
-/// <param name = "None"> None </param>
-/// <returns> A Squirtle </returns>
-class Wartortle : public Stage_1, public Water {
-private:
-	Attack* bubble;
-	Attack* surf;
-public:
-	Wartortle() : Stage_1(8, "Wartortle", 80, 2), Water() {
-		this->bubble = new Bubble(20, 1, 1);
-		this->surf = new Surf(50, 1, 2);
-
-	~Wartortle() {
-		delete bubble;
-		delete surf;
-		bubble = NULL;
-		surf = NULL;
-	}
-
-	Attack* Attack1() { return this->bubble; }
-	Attack* Attack2() { return this->surf; }
-	Attack* Attack3() { return NULL; }
-};
-
-/// <summary>
-/// <para>Blastoise - STAGE_2 </para>
-/// <para>Max HP: 180</para>
-/// <para>Attack1 - </para>
-/// <para>Attack2 - </para>
-/// <para>Attack3 - NULL</para>
-/// <para>Element Type: Water</para>
-/// <para>Weakness: Lightning</para>
-/// <para>Resistance: None</para>
-/// </summary>
-/// <param name = "None"> None </param>
-/// <returns> A Blastoise </returns>
-class Blastoise : public Stage_2, public Water {
-private:
-	Attack* attack1;
-public:
-	Blastoise() : Stage_2(9, "Blastoise", 180, 3), Water() {
-	}
-	~Blastoise() {
-	}
-
-	Attack* Attack1() { return NULL; }
-	Attack* Attack2() { return NULL; }
-	Attack* Attack3() { return NULL; }
-
-};
-
-/// <summary>
-/// <para>Eevee - BASIC </para>
-/// <para>Max HP: 80</para>
-/// <para>Attack1 - </para>
-/// <para>Attack2 - </para>
-/// <para>Attack3 - NULL</para>
-/// <para>Element Type: Colorless</para>
-/// <para>Weakness: Fighting</para>
-/// <para>Resistance: None</para>
-/// </summary>
-/// <param name = "None"> None </param>
-/// <returns> An Eevee </returns>
-class Eevee : public Basic, public Colorless {
-private:
-public:
-	Eevee() : Basic(133, "Eevee", 80, 1), Colorless(Element::FIGHTING) {
-	}
-	~Eevee() {
-	}
-
-	Attack* Attack1() { return NULL; }
-	Attack* Attack2() { return NULL; }
-	Attack* Attack3() { return NULL; }
 };

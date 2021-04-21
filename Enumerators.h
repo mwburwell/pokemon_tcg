@@ -1,11 +1,9 @@
 /***************************************************************************************************************************
- Class:  CSCI201-0CC-C1-202030-VI-16R
- Program: Pokemon The Card Game
- Instructor:  Kristopher Roberts
- Auther:  Michael Burwell
- Date:  04/10/2021
-****************************************************************************************************************************/
-/****************************************************************************************************************************
+ Class:			CSCI201-0CC-C1-202030-VI-16R
+ Program:		Pokemon The Card Game
+ Instructor:	Kristopher Roberts
+ ***************************************************************************************************************************/
+ /****************************************************************************************************************************
 /////////////////////							Enumerations Being Used 								/////////////////////
 ****************************************************************************************************************************/
 #pragma once
@@ -13,7 +11,7 @@
 #include <string>
 
 /* Enumerations and string maps for Pokemon Card Types */
-enum class PokemonCardType { BASIC, EVOLUTION, SPECIAL };
+enum class PokemonCardType { BASIC, STAGE_1, STAGE_2 };
 std::map<PokemonCardType, std::string> pokeCardTypeNames = { 
 	{PokemonCardType::BASIC, "BASIC"},
 	{PokemonCardType::EVOLUTION,"EVOLUTION"},
