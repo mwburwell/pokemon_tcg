@@ -50,17 +50,11 @@ public:
  ******************************************************************************************/
 class Fire : public ElementalType {
 public:
-									/* Basic Fire Pokemon Class */
-	Fire() :ElementalType(Element::FIRE, Element::WATER, Element::NONE) {}
-									/* Determine Fire Pokemon's Weakness */
-	Fire(Element weak) : ElementalType(Element::FIRE, weak, Element::NONE) {}
-									/* Determine Fire Pokemon's Weakness and Resistance */
-	Fire(Element weak, Element resist) :ElementalType(Element::FIRE, weak, resist) {}
-									/* If Fire Pokemon can Fly */
-	Fire(bool canFly) :ElementalType(Element::FIRE, Element::WATER, Element::NONE, canFly) {}
-									/* Determine Weakness for a flying Fire Pokemon */
-	Fire(Element weak, bool canFly) : ElementalType(Element::FIRE, weak, Element::NONE, canFly) {}
-
+	Fire()								: ElementalType(Element::FIRE, Element::WATER, Element::NONE) {}
+	Fire(Element weak)					: ElementalType(Element::FIRE, weak, Element::NONE) {}
+	Fire(bool canFly)					: ElementalType(Element::FIRE, Element::WATER, Element::NONE, canFly) {}
+	Fire(Element weak, bool canFly)		: ElementalType(Element::FIRE, weak, Element::NONE, canFly) {}
+	Fire(Element weak, Element resist)	: ElementalType(Element::FIRE, weak, resist) {}
 };
 
 
@@ -71,16 +65,11 @@ public:
  ******************************************************************************************/
 class Water : public ElementalType {
 public:
-										/* Basic Water Pokemon Class */
-	Water() :ElementalType(Element::WATER, Element::LIGHTNING, Element::NONE) {}
-										/* Determine water Pokemon's Weakness */
-	Water(Element weak) : ElementalType(Element::WATER, weak, Element::NONE) {}
-										/* Determine water Pokemon's Weakness and Resistance */
-	Water(Element weak, Element resist) :ElementalType(Element::WATER, weak, resist) {}
-										/* If water Pokemon can Fly */
-	Water(bool canFly) :ElementalType(Element::WATER, Element::LIGHTNING, Element::NONE, canFly) {}
-										/* Determine Weakness for a flying water Pokemon */
-	Water(Element weak, bool canFly) : ElementalType(Element::WATER, weak, Element::NONE, canFly) {}
+	Water()								: ElementalType(Element::WATER, Element::LIGHTNING, Element::NONE) {}
+	Water(Element weak)					: ElementalType(Element::WATER, weak, Element::NONE) {}
+	Water(bool canFly)					: ElementalType(Element::WATER, Element::LIGHTNING, Element::NONE, canFly) {}
+	Water(Element weak, bool canFly)	: ElementalType(Element::WATER, weak, Element::NONE, canFly) {}
+	Water(Element weak, Element resist) : ElementalType(Element::WATER, weak, resist) {}
 };
 
 
@@ -91,10 +80,9 @@ public:
  ******************************************************************************************/
 class Fighting : public ElementalType {
 public:
-	/* Determine fighting Pokemon's Weakness */
-	Fighting(Element weak) : ElementalType(Element::FIGHTING, weak, Element::NONE) {}
-	/* Determine fighting Pokemon's Weakness and Resistance */
-	Fighting(Element weak, Element resist) :ElementalType(Element::FIGHTING, weak, resist) {}
+	/* Fightin Pokemon can not fly, hence why no canfly constructor */
+	Fighting(Element weak)					: ElementalType(Element::FIGHTING, weak, Element::NONE) {}
+	Fighting(Element weak, Element resist)	: ElementalType(Element::FIGHTING, weak, resist) {}
 };
 
 
@@ -105,16 +93,11 @@ public:
  ******************************************************************************************/
 class Psychic : public ElementalType {
 public:
-										/* Basic Psychic Pokemon Class */
-	Psychic() :ElementalType(Element::PSYCHIC, Element::PSYCHIC, Element::NONE) {}
-										/* Determine Psychic Pokemon's Weakness */
-	Psychic(Element weak) : ElementalType(Element::PSYCHIC, weak, Element::NONE) {}
-										/* Determine Psychic Pokemon's Weakness and Resistance */
-	Psychic(Element weak, Element resist) :ElementalType(Element::PSYCHIC, weak, resist) {}
-										/* If Psychic Pokemon can Fly */
-	Psychic(bool canFly) :ElementalType(Element::PSYCHIC, Element::PSYCHIC, Element::NONE, canFly) {}
-										/* Determine Weakness for a flying psychic Pokemon */
-	Psychic(Element weak, bool canFly) : ElementalType(Element::PSYCHIC, weak, Element::NONE, canFly) {}
+	Psychic()								: ElementalType(Element::PSYCHIC, Element::PSYCHIC, Element::NONE) {}
+	Psychic(Element weak)					: ElementalType(Element::PSYCHIC, weak, Element::NONE) {}
+	Psychic(bool canFly)					: ElementalType(Element::PSYCHIC, Element::PSYCHIC, Element::NONE, canFly) {}
+	Psychic(Element weak, bool canFly)		: ElementalType(Element::PSYCHIC, weak, Element::NONE, canFly) {}
+	Psychic(Element weak, Element resist) : ElementalType(Element::PSYCHIC, weak, resist) {}
 };
 
 
@@ -125,16 +108,11 @@ public:
  ******************************************************************************************/
 class Darkness : public ElementalType {
 public:
-										/* Basic darkness Pokemon Class */
-	Darkness() :ElementalType(Element::DARKNESS, Element::FIGHTING, Element::PSYCHIC) {}
-										/* Determine darkness Pokemon's Weakness */
-	Darkness(Element weak) : ElementalType(Element::DARKNESS, weak, Element::PSYCHIC) {}
-										/* Determine darkness Pokemon's Weakness and Resistance */
-	Darkness(Element weak, Element resist) :ElementalType(Element::DARKNESS, weak, resist) {}
-										/* If darkness Pokemon can Fly */
-	Darkness(bool canFly) :ElementalType(Element::DARKNESS, Element::FIGHTING, Element::PSYCHIC, canFly) {}
-										/* Determine Weakness for a flying darkness Pokemon */
-	Darkness(Element weak, bool canFly) : ElementalType(Element::DARKNESS, weak, Element::PSYCHIC, canFly) {}
+	Darkness()								: ElementalType(Element::DARKNESS, Element::FIGHTING, Element::PSYCHIC) {}
+	Darkness(Element weak)					: ElementalType(Element::DARKNESS, weak, Element::PSYCHIC) {}
+	Darkness(bool canFly)					: ElementalType(Element::DARKNESS, Element::FIGHTING, Element::PSYCHIC, canFly) {}
+	Darkness(Element weak, Element resist)	: ElementalType(Element::DARKNESS, weak, resist) {}
+	Darkness(Element weak, bool canFly)		: ElementalType(Element::DARKNESS, weak, Element::PSYCHIC, canFly) {}
 };
 
 
@@ -145,16 +123,11 @@ public:
  ******************************************************************************************/
 class Metal : public ElementalType {
 public:
-										/* BasicMetale Pokemon Class */
-	Metal() :ElementalType(Element::METAL, Element::FIRE, Element::WATER) {}
-										/* Determine Metal Pokemon's Weakness */
-	Metal(Element weak) : ElementalType(Element::METAL, weak, Element::WATER) {}
-										/* Determine Metal Pokemon's Weakness and Resistance */
-	Metal(Element weak, Element resist) :ElementalType(Element::METAL, weak, resist) {}
-										/* If Metal Pokemon can Fly */
-	Metal(bool canFly) :ElementalType(Element::METAL, Element::FIRE, Element::WATER, canFly) {}
-										/* Determine Weakness for a flying Metal Pokemon */
-	Metal(Element weak, bool canFly) : ElementalType(Element::METAL, weak, Element::WATER, canFly) {}
+	Metal()								: ElementalType(Element::METAL, Element::FIRE, Element::WATER) {}
+	Metal(Element weak)					: ElementalType(Element::METAL, weak, Element::WATER) {}
+	Metal(bool canFly)					: ElementalType(Element::METAL, Element::FIRE, Element::WATER, canFly) {}
+	Metal(Element weak, Element resist) : ElementalType(Element::METAL, weak, resist) {}
+	Metal(Element weak, bool canFly)	: ElementalType(Element::METAL, weak, Element::WATER, canFly) {}
 };
 
 
@@ -165,16 +138,11 @@ public:
  ******************************************************************************************/
 class Grass : public ElementalType {
 public:
-									/* Basic Grass Pokemon Class */
-	Grass() :ElementalType(Element::GRASS, Element::FIRE, Element::WATER) {}
-									/* Determine Grass Pokemon's Weakness */
-	Grass(Element weak) : ElementalType(Element::GRASS, weak, Element::WATER) {}
-									/* Determine Grass Pokemon's Weakness and Resistance */
-	Grass(Element weak, Element resist) :ElementalType(Element::GRASS, weak, resist) {}
-									/* If Grass Pokemon can Fly */
-	Grass(bool canFly) :ElementalType(Element::GRASS, Element::FIRE, Element::WATER, canFly) {}
-									/* Determine Weakness for a flying Grass Pokemon */
-	Grass(Element weak, bool canFly) : ElementalType(Element::GRASS, weak, Element::WATER, canFly) {}
+	Grass()								: ElementalType(Element::GRASS, Element::FIRE, Element::WATER) {}
+	Grass(Element weak)					: ElementalType(Element::GRASS, weak, Element::WATER) {}
+	Grass(bool canFly)					: ElementalType(Element::GRASS, Element::FIRE, Element::WATER, canFly) {}
+	Grass(Element weak, bool canFly)	: ElementalType(Element::GRASS, weak, Element::WATER, canFly) {}
+	Grass(Element weak, Element resist) : ElementalType(Element::GRASS, weak, resist) {}
 };
 
 
@@ -185,16 +153,11 @@ public:
  ******************************************************************************************/
 class Lightning : public ElementalType {
 public:
-									/* Basic Lightning Pokemon Class */
-	Lightning() :ElementalType(Element::LIGHTNING, Element::FIGHTING, Element::NONE) {}
-									/* Determine Lightning Pokemon's Weakness */
-	Lightning(Element weak) : ElementalType(Element::LIGHTNING, weak, Element::NONE) {}
-									/* Determine Lightning Pokemon's Weakness and Resistance */
-	Lightning(Element weak, Element resist) :ElementalType(Element::LIGHTNING, weak, resist) {}
-									/* If Lightning Pokemon can Fly */
-	Lightning(bool canFly) :ElementalType(Element::LIGHTNING, Element::FIGHTING, Element::NONE, canFly) {}
-									/* Determine Weakness for a flying Lightning Pokemon */
-	Lightning(Element weak, bool canFly) : ElementalType(Element::LIGHTNING, weak, Element::NONE, canFly) {}
+	Lightning()								: ElementalType(Element::LIGHTNING, Element::FIGHTING, Element::NONE) {}
+	Lightning(Element weak)					: ElementalType(Element::LIGHTNING, weak, Element::NONE) {}
+	Lightning(bool canFly)					: ElementalType(Element::LIGHTNING, Element::FIGHTING, Element::NONE, canFly) {}
+	Lightning(Element weak, bool canFly)	: ElementalType(Element::LIGHTNING, weak, Element::NONE, canFly) {}
+	Lightning(Element weak, Element resist) : ElementalType(Element::LIGHTNING, weak, resist) {}
 };
 
 /*******************************************************************************************
@@ -203,12 +166,9 @@ public:
  ******************************************************************************************/
 class Colorless : public ElementalType {
 public:
-	/* Determine Colorless Pokemon's Weakness */
-	Colorless(Element weak) : ElementalType(Element::COLORLESS, weak, Element::NONE) {}
-	/* Determine Colorless Pokemon's Weakness and Resistance */
-	Colorless(Element weak, Element resist) :ElementalType(Element::COLORLESS, weak, resist) {}
-	/* Determine Weakness for a flying Colorless Pokemon */
-	Colorless(Element weak, bool canFly) : ElementalType(Element::COLORLESS, weak, Element::NONE, canFly) {}
+	Colorless(Element weak)					: ElementalType(Element::COLORLESS, weak, Element::NONE) {}
+	Colorless(Element weak, bool canFly)	: ElementalType(Element::COLORLESS, weak, Element::NONE, canFly) {}
+	Colorless(Element weak, Element resist) : ElementalType(Element::COLORLESS, weak, resist) {}
 };
 
 /*******************************************************************************************
@@ -217,12 +177,9 @@ public:
  ******************************************************************************************/
 class Dragon : public ElementalType {
 public:
-	/* Determine Dragon Pokemon's Weakness */
-	Dragon(Element weak) : ElementalType(Element::DRAGON, weak, Element::NONE) {}
-	/* Determine Dragon Pokemon's Weakness and Resistance */
-	Dragon(Element weak, Element resist) :ElementalType(Element::DRAGON, weak, resist) {}
-	/* Determine Weakness for a flying Dragon Pokemon */
-	Dragon(Element weak, bool canFly) : ElementalType(Element::DRAGON, weak, Element::NONE, canFly) {}
+	Dragon(Element weak)				: ElementalType(Element::DRAGON, weak, Element::NONE) {}
+	Dragon(Element weak, bool canFly)	: ElementalType(Element::DRAGON, weak, Element::NONE, canFly) {}
+	Dragon(Element weak, Element resist) : ElementalType(Element::DRAGON, weak, resist) {}
 };
 
 /*******************************************************************************************
@@ -231,14 +188,9 @@ public:
  ******************************************************************************************/
 class Fairy : public ElementalType {
 public:
-										/* Basic Fairy Pokemon Class */
-	Fairy() :ElementalType(Element::FAIRY, Element::METAL, Element::DARKNESS) {}
-										/* Determine Fairy Pokemon's Weakness */
-	Fairy(Element weak) : ElementalType(Element::FAIRY, weak, Element::DARKNESS) {}
-										/* Determine Fairy Pokemon's Weakness and Resistance */
-	Fairy(Element weak, Element resist) :ElementalType(Element::FAIRY, weak, resist) {}
-										/* If Fairy Pokemon can Fly */
-	Fairy(bool canFly) :ElementalType(Element::FAIRY, Element::METAL, Element::DARKNESS, canFly) {}
-										/* Determine Weakness for a flying Fairy Pokemon */
-	Fairy(Element weak, bool canFly) : ElementalType(Element::FAIRY, weak, Element::DARKNESS, canFly) {}
+	Fairy()								: ElementalType(Element::FAIRY, Element::METAL, Element::DARKNESS) {}
+	Fairy(Element weak)					: ElementalType(Element::FAIRY, weak, Element::DARKNESS) {}
+	Fairy(bool canFly)					: ElementalType(Element::FAIRY, Element::METAL, Element::DARKNESS, canFly) {}
+	Fairy(Element weak, bool canFly)	: ElementalType(Element::FAIRY, weak, Element::DARKNESS, canFly) {}
+	Fairy(Element weak, Element resist) : ElementalType(Element::FAIRY, weak, resist) {}
 };
