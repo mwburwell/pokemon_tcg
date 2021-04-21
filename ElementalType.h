@@ -3,9 +3,9 @@
  Program:		Pokemon The Card Game
  Instructor:	Kristopher Roberts
  ***************************************************************************************************************************/
-/****************************************************************************************************************************
-/////////////////////								Elemental Types		 								/////////////////////
-****************************************************************************************************************************/
+ /****************************************************************************************************************************
+ /////////////////////								Elemental Types		 								/////////////////////
+ ****************************************************************************************************************************/
 #pragma once
 #include <iostream>
 #include <string>
@@ -31,7 +31,7 @@ public:
 		this->weaknessMultiplier = 2;		// Pokemon Takes 2 times the damage if weak against attack 
 		this->resistanceMultiplier = 20;	// Pokemon takes 20 less damage if resistance to attack
 	}
-	
+
 
 	int getWeaknessMultiplier() { return this->weaknessMultiplier; }
 	int getResistanceMultiplier() { return this->resistanceMultiplier; }
@@ -43,8 +43,9 @@ public:
 
 
 /*******************************************************************************************
- * Fire Type Pokemon
- * Usual Weakness:  WATER       Resistance: NONE
+ Fire Type Pokemon
+ Usual Weakness:  WATER
+ Resistance: NONE
  ******************************************************************************************/
 class Fire : public ElementalType {
 public:
@@ -57,7 +58,7 @@ public:
 	Fire(bool canFly)
 		: ElementalType(Element::FIRE, Element::WATER, Element::NONE, canFly) {}
 
-	Fire(Element weak, bool canFly)	
+	Fire(Element weak, bool canFly)
 		: ElementalType(Element::FIRE, weak, Element::NONE, canFly) {}
 
 	Fire(Element weak, Element resist)
@@ -68,12 +69,12 @@ public:
 
 /*******************************************************************************************
  Water Type Pokemon
- Usual Weakness:  Lightning       
+ Usual Weakness:  Lightning
  Resistance: NONE
  ******************************************************************************************/
 class Water : public ElementalType {
 public:
-	Water
+	Water()
 		: ElementalType(Element::WATER, Element::LIGHTNING, Element::NONE) {}
 
 	Water(Element weak)
@@ -93,7 +94,7 @@ public:
 
 /*******************************************************************************************
  Fighting Type Pokemon
- Usual Weakness:  {GRASS, PSYCHIC, WATER}       
+ Usual Weakness:  {GRASS, PSYCHIC, WATER}
  Resistance: NONE
  ******************************************************************************************/
 class Fighting : public ElementalType {
@@ -110,7 +111,7 @@ public:
 
 /*******************************************************************************************
  PSYCHIC Type Pokemon
- Usual Weakness:  PSYCHIC       
+ Usual Weakness:  PSYCHIC
  Resistance: NONE
  ******************************************************************************************/
 class Psychic : public ElementalType {
@@ -135,7 +136,7 @@ public:
 
 /*******************************************************************************************
  DARKNESS Type Pokemon
- Usual Weakness:  FIGHTING       
+ Usual Weakness:  FIGHTING
  Resistance: PSYCHIC
  ******************************************************************************************/
 class Darkness : public ElementalType {
@@ -152,7 +153,7 @@ public:
 	Darkness(Element weak, Element resist)
 		: ElementalType(Element::DARKNESS, weak, resist) {}
 
-	Darkness(Element weak, bool canFly)	
+	Darkness(Element weak, bool canFly)
 		: ElementalType(Element::DARKNESS, weak, Element::PSYCHIC, canFly) {}
 };
 
@@ -160,7 +161,7 @@ public:
 
 /*******************************************************************************************
  METAL Type Pokemon
- Usual Weakness:  FIRE       
+ Usual Weakness:  FIRE
  Resistance: WATER
  ******************************************************************************************/
 class Metal : public ElementalType {
@@ -185,7 +186,7 @@ public:
 
 /*******************************************************************************************
  GRASS Type Pokemon
- Usual Weakness:  FIRE       
+ Usual Weakness:  FIRE
  Resistance: WATER
  ******************************************************************************************/
 class Grass : public ElementalType {
@@ -210,7 +211,7 @@ public:
 
 /*******************************************************************************************
  LIGHTNING Type Pokemon
- Usual Weakness:  FIGHTING       
+ Usual Weakness:  FIGHTING
  Resistance: NONE
  ******************************************************************************************/
 class Lightning : public ElementalType {
@@ -233,7 +234,7 @@ public:
 
 /*******************************************************************************************
  COLORLESS Type Pokemon
- Usual Weakness:  {FIGHTING, LIGHTNING, NONE}       
+ Usual Weakness:  {FIGHTING, LIGHTNING, NONE}
  Resistance: NONE
  ******************************************************************************************/
 class Colorless : public ElementalType {
@@ -248,7 +249,7 @@ public:
 
 /*******************************************************************************************
  DRAGON Type Pokemon
- Usual Weakness:  {FAIRY, DRAGON}       
+ Usual Weakness:  {FAIRY, DRAGON}
  Resistance: NONE
  ******************************************************************************************/
 class Dragon : public ElementalType {
@@ -263,7 +264,7 @@ public:
 
 /*******************************************************************************************
  FAIRY Type Pokemon
- Usual Weakness:  METAL       
+ Usual Weakness:  METAL
  Resistance: DARKNESS
  ******************************************************************************************/
 class Fairy : public ElementalType {

@@ -4,18 +4,18 @@
  Instructor:	Kristopher Roberts
  ***************************************************************************************************************************/
  /****************************************************************************************************************************
-/////////////////////							Enumerations Being Used 								/////////////////////
-****************************************************************************************************************************/
+ /////////////////////							Enumerations Being Used 								/////////////////////
+ ****************************************************************************************************************************/
 #pragma once
 #include <map>
 #include <string>
 
-/* Enumerations and string maps for Pokemon Card Types */
+ /* Enumerations and string maps for Pokemon Card Types */
 enum class PokemonCardType { BASIC, STAGE_1, STAGE_2 };
-std::map<PokemonCardType, std::string> pokeCardTypeNames = { 
+std::map<PokemonCardType, std::string> pokeCardTypeNames = {
 	{PokemonCardType::BASIC, "BASIC"},
-	{PokemonCardType::EVOLUTION,"EVOLUTION"},
-	{PokemonCardType::SPECIAL,"SPECIAL"} 
+	{PokemonCardType::STAGE_1,"EVOLUTION"},
+	{PokemonCardType::STAGE_2,"SPECIAL"}
 };
 
 /* Enumerations and string maps for Element Types */
@@ -36,7 +36,7 @@ std::map<Element, std::string> elementNames = {
 };
 
 /* Enumerations and string map for Status Effects */
-enum class StatusEffects {PARALYSIS, SLEEP, CONFUSION, BURN, POISON};
+enum class StatusEffects { PARALYSIS, SLEEP, CONFUSION, BURN, POISON };
 std::map<StatusEffects, std::string> statusEffectNames = {
 	{StatusEffects::PARALYSIS, "PARALYSIS"},
 	{StatusEffects::SLEEP, "SLEEP"},
@@ -46,7 +46,7 @@ std::map<StatusEffects, std::string> statusEffectNames = {
 };
 
 /* Enumerations and string map for the Card Types */
-enum class CardType {POKEMON, ENERGY, TRAINER};
+enum class CardType { POKEMON, ENERGY, TRAINER };
 std::map<CardType, std::string> cardTypeNames = {
 	{CardType::POKEMON, "POKEMON"},
 	{CardType::ENERGY, "ENERGY"},

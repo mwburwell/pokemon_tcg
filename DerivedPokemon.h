@@ -26,7 +26,7 @@
 /// </summary>
 /// <param name = "None"> None </param>
 /// <returns> A Squirtle </returns>
-class Squirtle : public Basic, public Water {
+class Squirtle : virtual public Basic, public Water {
 private:
 	Attack* bubble;
 	Attack* waterGun;
@@ -63,7 +63,7 @@ public:
 /// </summary>
 /// <param name = "None"> None </param>
 /// <returns> A Squirtle </returns>
-class Wartortle : public Stage_1, public Water {
+class Wartortle : virtual public Stage_1, public Water {
 private:
 	Attack* bubble;
 	Attack* surf;
@@ -73,7 +73,7 @@ public:
 		this->cardIDEvolvedFrom = 7;			// evolves from squirtle whose ID number is 7
 		this->bubble = new Bubble(20, 1, 1);
 		this->surf = new Surf(50, 1, 2);
-
+	}
 	~Wartortle() {
 		delete bubble;
 		delete surf;
@@ -100,7 +100,7 @@ public:
 /// </summary>
 /// <param name = "None"> None </param>
 /// <returns> A Blastoise </returns>
-class Blastoise : public Stage_2, public Water {
+class Blastoise : virtual public Stage_2, public Water {
 private:
 	Attack* attack1;
 	Attack* attack2;

@@ -2,37 +2,32 @@
  Class:  CSCI201-0CC-C1-202030-VI-16R
  Program: Pokemon The Card Game
  Instructor:  Kristopher Roberts
- Auther:  Michael Burwell
- Date:  04/10/2021
-****************************************************************************************************************************/
-/****************************************************************************************************************************
-/////////////////////									CARD CLASS		 								/////////////////////
-****************************************************************************************************************************/
+ ***************************************************************************************************************************/
+ /****************************************************************************************************************************
+ /////////////////////									CARD CLASS		 								/////////////////////
+ ****************************************************************************************************************************/
 #pragma once
 #include <string>
+#include "Enumerators.h"
 
 class Card {
 protected:
 	bool isDiscarded;
 	bool isPrizeCard;
 	bool isOnBench;
-	std::string name;
 	CardType cardType;
 public:
-	Card(std::string name, CardType type) {
-		setName(name);
+	Card(CardType type) {
 		this->cardType = type;
+		isDiscarded = false;
+		isPrizeCard = false;
+		isOnBench = false;
 	}
 	~Card() {
 
 	}
 
-	std::string getName() {
-		return this->name;
-	}
-	void setName(std::string name) {
-		this->name = name;
-	}
+	//virtual std::string getName() = 0;
 
 	void Discard() {
 		this->isDiscarded = true;
