@@ -21,15 +21,7 @@ protected:
 	Element resistanceType;
 	Element attackType;
 public:
-	ElementalType(Element attackType, Element weak, Element resistant) {
-		this->attackType = attackType;
-		this->weaknessType = weak;
-		this->resistanceType = resistant;
-		this->weaknessMultiplier = 2;		// Pokemon Takes 2 times the damage if weak against attack 
-		this->resistanceMultiplier = 20;	// Pokemon takes 20 less damage if resistance to attack
-	}
-	
-	ElementalType(Element attackType, Element weak, Element resistant, bool flyingType) {
+	ElementalType(Element attackType, Element weak, Element resistant, bool flyingType = false) {
 		this->attackType = attackType;
 		this->weaknessType = weak;
 		if (flyingType) {
@@ -41,6 +33,7 @@ public:
 		this->weaknessMultiplier = 2;		// Pokemon Takes 2 times the damage if weak against attack 
 		this->resistanceMultiplier = 20;	// Pokemon takes 20 less damage if resistance to attack
 	}
+	
 
 	int getWeaknessMultiplier() { return this->weaknessMultiplier; }
 	int getResistanceMultiplier() { return this->resistanceMultiplier; }
