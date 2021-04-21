@@ -97,7 +97,7 @@ public:
 	Psychic(Element weak)					: ElementalType(Element::PSYCHIC, weak, Element::NONE) {}
 	Psychic(bool canFly)					: ElementalType(Element::PSYCHIC, Element::PSYCHIC, Element::NONE, canFly) {}
 	Psychic(Element weak, bool canFly)		: ElementalType(Element::PSYCHIC, weak, Element::NONE, canFly) {}
-	Psychic(Element weak, Element resist) : ElementalType(Element::PSYCHIC, weak, resist) {}
+	Psychic(Element weak, Element resist)	: ElementalType(Element::PSYCHIC, weak, resist) {}
 };
 
 
