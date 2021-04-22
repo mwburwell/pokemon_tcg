@@ -13,14 +13,29 @@ BASIC, STAGE_1, STAGE_2 parameters in order:
 	int maxHP		- is the Pokémon's maximum hit points allowed before it falls.
 	int retreatCost		- is the amount of energy cards that will need to be paid to allow the Pokémon to retreat.
 
-*Example:*
+*Squirtle:*
 
 	Squirtle() : Basic(7, "Squirtle", 50, 1)
 	cardIDNumber 	-> 7
 	name		-> Squirtle
 	maxHP		-> 50
 	retreatCost	-> 1
+	
+*Wartortle*
 
+	Wartortle() : Stage_1(8, "Wartortle", 80, 2)
+	cardIDNumber 	-> 8
+	name		-> Wartortle
+	maxHP		-> 80
+	retreatCost	-> 2
+	
+*Blastoise*
+
+	Blastoise() : Stage_2(9, "Blastoise", 180, 3)
+	cardIDNumber 	-> 9
+	name		-> Blastoise
+	maxHP		-> 180
+	retreatCost	-> 3
 
 ## Element Types:
 
@@ -33,9 +48,9 @@ Elemental Type constructor:
 	ElementalType(Element attackType, Element weak, Element resistant, bool flyingType = false)
 
 
-Each type has multiple constructors allowing flexibility in creating different elemental type weaknesses and resistances.  Using Water for an 
+Each type has multiple constructors allowing flexibility in creating different elemental type weaknesses and resistances.   
 
-*Example:*
+*Using Water for an Example:*
 
 	Water()		// default constructor Water, Weak to lightning, no resistance
 		: ElementalType(Element::WATER, Element::LIGHTNING, Element::NONE) {}
