@@ -1,11 +1,8 @@
-/***************************************************************************************************************************
+/*************************************************
  Class:			CSCI201-0CC-C1-202030-VI-16R
  Program:		Pokemon The Card Game
  Instructor:	Kristopher Roberts
- ***************************************************************************************************************************/
- /****************************************************************************************************************************
-/////////////////////								Pokemon Header File									/////////////////////
-****************************************************************************************************************************/
+ *************************************************/
 #pragma once
 #include <iostream>
 #include <string>
@@ -19,7 +16,7 @@ using namespace std;
 /// <summary>
 /// Pokemon
 /// </summary>
-class Pokemon : public Card {
+class Pokemon {
 private:
 	int cardIDNumber;
 	int hitPoints;
@@ -34,7 +31,7 @@ private:
 	bool isParalyzed;
 	std::string name;
 public:
-	Pokemon(int cardIDNumber, std::string name, int maxHP, int retreatCost, PokemonCardType type) : Card(CardType::POKEMON) {
+	Pokemon(int cardIDNumber, std::string name, int maxHP, int retreatCost, PokemonCardType type) {
 		setCardIDNumber(cardIDNumber);
 		setName(name);
 		setMaxHP(maxHP);

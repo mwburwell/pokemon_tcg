@@ -1,8 +1,8 @@
-/*
+/*************************************************
  Class:			CSCI201-0CC-C1-202030-VI-16R
  Program:		Pokemon The Card Game
  Instructor:	Kristopher Roberts
- */
+ *************************************************/
 
 #pragma once
 #include <iostream>
@@ -29,10 +29,9 @@ private:
 	Attack* waterGun;
 public:
 	/// <param name = "None"> No parameters </param>
-	Squirtle() : Basic(7, "Squirtle", 50, 1) {
+	Squirtle() : Basic(7, "Squirtle", 50, 1), Water() {
 		this->bubble = new Bubble(0, 1, 0);
 		this->waterGun = new WaterGun(20, 1, 1);
-		Attack s();
 	}
 	~Squirtle() {
 		delete bubble;
