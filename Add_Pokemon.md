@@ -2,6 +2,8 @@
 
 To add a Pokémon go to the Derived Pokémon file and Add your Pokémon here.
 
+
+
 ## Pokémon Base classes: 
 
 The DerivedPokémon can inherit Either a **Basic, Stage_1, or Stage_2** Pokémon.  The constructors for these three types of Pokémon all have the same constructor and take four parameters:
@@ -36,6 +38,8 @@ BASIC, STAGE_1, STAGE_2 parameters in order:
 	name		-> Blastoise
 	maxHP		-> 180
 	retreatCost	-> 3
+	
+	
 
 ## Element Types:
 
@@ -80,3 +84,61 @@ Each type has multiple constructors allowing flexibility in creating different e
 Some of the Element Types do not have all of these constructors.  Some elemental types do not specify a default constructor because they do not have a default weakness.  Some Pokémon can not fly, i.e. FIGHTING Pokémon.
 
 Look up your Pokémon's Elemental Type to see the Constructors available for the Pokémon.
+
+
+
+
+## Adding Attacks To Pokémon:
+I recomend before adding an attack to a Pokémon go and add the attack to the attack file.  // TODO add an attack file example
+
+An attack will be a member of the Derived Pokémon class and also will be implemented in a get **Attack** function.  There are three virtual functions that need to be implemented for each Pokémon.
+
+Attack1
+Attack2
+Attack3
+
+These functions will return a pointer to the attack member declared in your Pokémon class.  I included three just in case.  Most of the Time the third function will retrun a *Null* pointer.
+
+*Using Squirtle again*
+
+	class Squirtle : virtual public Basic, public Water {
+	private:
+		Attack* bubble;
+		Attack* waterGun;
+	public:
+		/// <param name = "None"> No parameters </param>
+		Squirtle() : Basic(7, "Squirtle", 50, 1), Water() {
+			this->bubble = new Bubble(0, 1, 0);
+			this->waterGun = new WaterGun(20, 1, 1);
+			Attack s();
+		}
+		~Squirtle() {
+			delete bubble;
+			delete waterGun;
+			bubble = NULL;
+			waterGun = NULL;
+		}
+
+		Attack* Attack1() { return this->bubble; }
+		Attack* Attack2() { return this->waterGun; }
+		Attack* Attack3() { return NULL; }
+	};
+	
+Declare the Attack pointer as a member variable:
+
+	Attack* bubble;
+
+And in the constructor create a new attack with the Attack that you coded in the Attack File:
+	
+	this->bubble = new Bubble(0, 1, 0);
+	
+I would make sure to delete the Attack in the Destructor of the class and set the pointer to null: 
+
+	~Squirtle(){
+		delete bubble;
+		bubble = NULL;
+	}
+	
+Now that we have an attack we can call it using the virtual Attack1() function by returning the attack:
+
+	Attack* Attack1() { return this->bubble; }
