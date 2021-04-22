@@ -26,7 +26,7 @@ BASIC, STAGE_1, STAGE_2 parameters in order:
 
 Derived Pokémon should also inherit an elemental Type.  There are currently 11 types programed **(FIGHTING, PSYCHIC, DARKNESS, METAL, COLORLESS, FIRE, GRASS, WATER, LIGHTNING, DRAGON, FAIRY)**.
 
-Each element inherits from the Elemental Type Constructor and adds it's element with the weakness and resistance types.
+Each element inherits from the Elemental Type Constructor and adds it's attack element with the weakness and resistance types.
 
 Elemental Type constructor:
 
