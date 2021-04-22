@@ -37,10 +37,10 @@ Each type has multiple constructors allowing flexibility in creating different e
 How to use the elemental constructors:
 Example:
 
-	Squirtle() : Basic(7, "Squirtle", 50, 1), Water() // creates a basic water type Pokémon with weakness to LIGHTNING and no resistance
-	Squirtle() : Basic(7, "Squirtle", 50, 1), Water(Element::GRASS) // creates a water type Pokémon with weakness to GRASS and no resistance
-	Squirtle() : Basic(7, "Squirtle", 50, 1), Water(true) // creates a water type Flying Pokémon that is weak to LIGHTNING and resistant to FIGHTING
-	Squirtle() : Basic(7, "Squirtle", 50, 1), Water(Element::GRASS, true) // creates a water type Pokémon with weakness to GRASS and resistant to FIGHTING
+	Squirtle() : Basic(7, "Squirtle", 50, 1), Water() 			// creates a basic water type Pokémon with weakness to LIGHTNING and no resistance
+	Squirtle() : Basic(7, "Squirtle", 50, 1), Water(Element::GRASS) 	// creates a water type Pokémon with weakness to GRASS and no resistance
+	Squirtle() : Basic(7, "Squirtle", 50, 1), Water(true) 			// creates a water type Flying Pokémon that is weak to LIGHTNING and resistant to FIGHTING
+	Squirtle() : Basic(7, "Squirtle", 50, 1), Water(Element::GRASS, true) 	// creates a water type Pokémon with weakness to GRASS and resistant to FIGHTING
 	Squirtle() : Basic(7, "Squirtle", 50, 1), Water(Element::GRASS, Element::FIRE) // creates a water type Pokémon with weakness to GRASS and resistant to FIRE
 
 
