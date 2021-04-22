@@ -1,23 +1,33 @@
 # pokemon_tcg
 A c++ program based on Pokémon The Card Game
 
-Add Pokemon:
+## Add Pokemon:
+
 To add a Pokémon go to the Derived Pokémon file and Add your Pokémon here.
 
-The DerivedPokémon can inherit Either a Basic, Stage_1, or Stage_2 Pokémon.  The constructors for these three types of Pokémon all have the same constructor and take four parameters:
+### Pokémon Base classes: 
+
+The DerivedPokémon can inherit Either a **Basic, Stage_1, or Stage_2** Pokémon.  The constructors for these three types of Pokémon all have the same constructor and take four parameters:
 
 BASIC, STAGE_1, STAGE_2 parameters in order:
-int cardIDNumber	- is the Pokémon card's ID number.  This can be used to check if a Stage_1 or Stage_2 evolution Pokémon can evolve from this Pokémon.
-string name		- is the name of the Pokemon
-int maxHP		- is the Pokémon's maximum hit points allowed before it falls.
-int retreatCost		- is the amount of energy cards that will need to be paid to allow the Pokémon to retreat.
 
-Example:
+	int cardIDNumber	- is the Pokémon card's ID number.  This can be used to check if a Stage_1 or Stage_2 evolution Pokémon can evolve from this Pokémon.
+	string name		- is the name of the Pokemon
+	int maxHP		- is the Pokémon's maximum hit points allowed before it falls.
+	int retreatCost		- is the amount of energy cards that will need to be paid to allow the Pokémon to retreat.
+
+*Example:*
+
 	Squirtle() : Basic(7, "Squirtle", 50, 1)
 
-Derived Pokémon should also inherit an elemental Type.  There are currently 11 types programed (FIGHTING, PSYCHIC, DARKNESS, METAL, COLORLESS, FIRE, GRASS, WATER, LIGHTNING, DRAGON, FAIRY).
 
-Each type has multiple constructors allowing flexibility in creating different elemental type weaknesses and resistances.  Some more than others.  Using Water for an example:
+### Element Types:
+
+Derived Pokémon should also inherit an elemental Type.  There are currently 11 types programed **(FIGHTING, PSYCHIC, DARKNESS, METAL, COLORLESS, FIRE, GRASS, WATER, LIGHTNING, DRAGON, FAIRY)**.
+
+Each type has multiple constructors allowing flexibility in creating different elemental type weaknesses and resistances.  Some more than others.  Using Water for an 
+
+*Example:*
 
 	Water()		// default constructor Water, Weak to lightning, no resistance
 		: ElementalType(Element::WATER, Element::LIGHTNING, Element::NONE) {}
@@ -34,8 +44,8 @@ Each type has multiple constructors allowing flexibility in creating different e
 	Water(Element weak, Element resist)	// modify the weakness and the resistance
 		: ElementalType(Element::WATER, weak, resist) {}
 
-How to use the elemental constructors:
-Example:
+*How to use the elemental constructors:*
+
 
 	Squirtle() : Basic(7, "Squirtle", 50, 1), Water() 			// creates a basic water type Pokémon with weakness to LIGHTNING and no resistance
 	Squirtle() : Basic(7, "Squirtle", 50, 1), Water(Element::GRASS) 	// creates a water type Pokémon with weakness to GRASS and no resistance
