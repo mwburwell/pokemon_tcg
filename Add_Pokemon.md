@@ -2,6 +2,31 @@
 
 To add a Pokémon go to the Derived Pokémon file and Add your Pokémon here.
 
+*Here is an example of a Squirtle:*
+
+	class Squirtle : virtual public Basic, public Water {
+	private:
+		Attack* bubble;
+		Attack* waterGun;
+	public:
+		/// <param name = "None"> No parameters </param>
+		Squirtle() : Basic(7, "Squirtle", 50, 1), Water() {
+			this->bubble = new Bubble(0, 1, 0);
+			this->waterGun = new WaterGun(20, 1, 1);
+		}
+		~Squirtle() {
+			delete bubble;
+			delete waterGun;
+			bubble = NULL;
+			waterGun = NULL;
+		}
+
+		Attack* Attack1() { return this->bubble; }
+		Attack* Attack2() { return this->waterGun; }
+		Attack* Attack3() { return NULL; }
+	};
+
+
 
 
 ## Pokémon Base classes: 
@@ -93,9 +118,9 @@ I recomend before adding an attack to a Pokémon go and add the attack to the at
 
 An attack will be a member of the Derived Pokémon class and also will be implemented in a get **Attack** function.  There are three virtual functions that need to be implemented for each Pokémon.
 
-Attack1
-Attack2
-Attack3
+	Attack* Attack1()
+	Attack* Attack2()
+	Attack* Attack3()
 
 These functions will return a pointer to the attack member declared in your Pokémon class.  I included three just in case.  Most of the Time the third function will retrun a *Null* pointer.
 
@@ -104,23 +129,17 @@ These functions will return a pointer to the attack member declared in your Pok�
 	class Squirtle : virtual public Basic, public Water {
 	private:
 		Attack* bubble;
-		Attack* waterGun;
 	public:
-		/// <param name = "None"> No parameters </param>
 		Squirtle() : Basic(7, "Squirtle", 50, 1), Water() {
 			this->bubble = new Bubble(0, 1, 0);
-			this->waterGun = new WaterGun(20, 1, 1);
-			Attack s();
 		}
 		~Squirtle() {
 			delete bubble;
-			delete waterGun;
 			bubble = NULL;
-			waterGun = NULL;
 		}
 
 		Attack* Attack1() { return this->bubble; }
-		Attack* Attack2() { return this->waterGun; }
+		Attack* Attack2() { return NULL; }
 		Attack* Attack3() { return NULL; }
 	};
 	
