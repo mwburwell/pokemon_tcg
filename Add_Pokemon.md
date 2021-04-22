@@ -16,6 +16,10 @@ BASIC, STAGE_1, STAGE_2 parameters in order:
 *Example:*
 
 	Squirtle() : Basic(7, "Squirtle", 50, 1)
+	cardIDNumber 	-> 7
+	name		-> Squirtle
+	maxHP		-> 50
+	retreatCost	-> 1
 
 
 ## Element Types:
