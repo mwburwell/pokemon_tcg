@@ -20,8 +20,10 @@ To add a Pokémon go to the Derived Pokémon file and Add your Pokémon here.
 		~Squirtle() {
 			delete bubble;
 			delete waterGun;
+			delet element;
 			bubble = NULL;
 			waterGun = NULL;
+			element = NULL;
 		}
 
 		Attack* Attack1() { return this->bubble; }
