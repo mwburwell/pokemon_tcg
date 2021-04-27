@@ -10,6 +10,7 @@
 #include "Card.h"
 #include "ElementalType.h"
 #include "Attack.h"
+#include "Enumerators.h"
 
 using namespace std;
 
@@ -45,9 +46,9 @@ public:
 		setIsConfused(false);
 		this->statusIsAffected = false;
 	}
-	~Pokemon() {
-		delete this;
-	}
+	// ~Pokemon() {
+	// 	delete this;
+	// }
 
 	std::string getName() { return name; }
 	void setName(std::string s) {

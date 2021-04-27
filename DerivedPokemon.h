@@ -34,11 +34,13 @@ public:
 	Basic(7, "Squirtle", 50, 1) {
 		this->bubble = new Bubble(0, 1, 0);
 		this->waterGun = new WaterGun(20, 1, 1);
-		element = new Water();
+		this->element = new Water();
 	}
 	~Squirtle() {
 		delete bubble;
 		delete waterGun;
+		delete element;
+		element = NULL;
 		bubble = NULL;
 		waterGun = NULL;
 	}
@@ -155,12 +157,13 @@ private:
 	Attack* attack2;
 	Element* element;
 public:
-	Eevee() : Basic(133, "Eevee", 80, 1), Colorless(Element::FIGHTING) {
-		element = new Colorless();
+	Eevee() : 
+	Basic(133, "Eevee", 80, 1) {
+		element = new Colorless(ElementType::FIGHTING);
 	}
 	~Eevee() {
 		delete element;
-		element = NULL:
+		element = NULL;
 	}
 
 	Attack* Attack1() { return this->attack1; }

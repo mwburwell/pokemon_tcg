@@ -52,18 +52,18 @@ std::map<CardType, std::string> cardTypeNames = {
 	{CardType::TRAINER, "TRAINER"}
 };
 
-enum class AllPokemon {SQUIRTLE, BLASTOISE, WARTORTLE, EEVEE};
-std::vector<int> ints;
-const std::map<ElementType, std::vector<AllPokemon> > allPokemonNames = {
-	{ElementType::WATER, {
-		AllPokemon::SQUIRTLE, 
-		AllPokemon::WARTORTLE, 
-		AllPokemon::BLASTOISE
-		} 
-	},
+// enum class AllPokemon {SQUIRTLE, BLASTOISE, WARTORTLE, EEVEE};
+// std::vector<int> ints;
+// const std::map<ElementType, std::vector<AllPokemon> > allPokemonNames = {
+// 	{ElementType::WATER, {
+// 		AllPokemon::SQUIRTLE, 
+// 		AllPokemon::WARTORTLE, 
+// 		AllPokemon::BLASTOISE
+// 		} 
+// 	},
 
-	{ElementType::COLORLESS, {
-		AllPokemon::EEVEE
-		} 
-	}
-};
+// 	{ElementType::COLORLESS, {
+// 		AllPokemon::EEVEE
+// 		} 
+// 	}
+// };

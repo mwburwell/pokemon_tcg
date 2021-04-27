@@ -75,7 +75,7 @@ public:
 	/// <param name = "colorlessCost"> - Required number of additional energy cards of ANY type that need to be attached to the pokemon to use this Attack</param>
 	Bubble(int hitPoints, int elementCost, int colorlessCost) :
 		Attack("Bubble", "Flip a coin, if heads the defending Pokemon is now paralyzed",
-			hitPoints, elementCost, colorlessCost, Element::WATER, StatusEffects::PARALYSIS) {
+			hitPoints, elementCost, colorlessCost, ElementType::WATER, StatusEffects::PARALYSIS) {
 	}
 };
 
@@ -89,7 +89,7 @@ public:
 	/// <param name = "colorlessCost"> - Required number of additional energy cards of ANY type that need to be attached to the pokemon to use this Attack</param>
 	WaterGun(int hitPoints, int elementCost, int colorlessCost) :
 		Attack("Water Gun", "Shoots Water Gun",
-			hitPoints, elementCost, colorlessCost, Element::WATER) {}
+			hitPoints, elementCost, colorlessCost, ElementType::WATER) {}
 };
 
 
@@ -103,5 +103,5 @@ public:
 	/// <param name = "colorlessCost"> - Required number of additional energy cards of ANY type that need to be attached to the pokemon to use this Attack</param>
 	Surf(int hitPoints, int elementCost, int colorlessCost) :
 		Attack("Surf", "Cowabunga",
-			hitPoints, elementCost, colorlessCost, Element::WATER) {}
+			hitPoints, elementCost, colorlessCost, ElementType::WATER) {}
 };

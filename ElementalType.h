@@ -32,9 +32,9 @@ public:
 
 	int getWeaknessMultiplier() { return this->weaknessMultiplier; }
 	int getResistanceMultiplier() { return this->resistanceMultiplier; }
-	Element getWeaknessType() { return this->weaknessType; }
-	Element getResistanceType() { return this->resistanceType; }
-	Element getAttackType() { return this->attackType; }
+	ElementType getWeaknessType() { return this->weaknessType; }
+	ElementType getResistanceType() { return this->resistanceType; }
+	ElementType getAttackType() { return this->attackType; }
 	// virtual int getWeaknessMultiplier() = 0;
 	// virtual int getResistanceMultiplier() = 0;
 	// virtual Element getWeaknessType() = 0;
@@ -146,16 +146,16 @@ public:
 	Darkness()
 		: Element(ElementType::DARKNESS, ElementType::FIGHTING, ElementType::PSYCHIC) {}
 
-	Darkness(Element weak)
+	Darkness(ElementType weak)
 		: Element(ElementType::DARKNESS, weak, ElementType::PSYCHIC) {}
 
 	Darkness(bool canFly)
 		: Element(ElementType::DARKNESS, ElementType::FIGHTING, ElementType::PSYCHIC, canFly) {}
 
-	Darkness(Element weak, Element resist)
+	Darkness(ElementType weak, ElementType resist)
 		: Element(ElementType::DARKNESS, weak, resist) {}
 
-	Darkness(Element weak, bool canFly)
+	Darkness(ElementType weak, bool canFly)
 		: Element(ElementType::DARKNESS, weak, ElementType::PSYCHIC, canFly) {}
 };
 

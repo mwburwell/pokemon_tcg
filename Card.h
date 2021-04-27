@@ -11,7 +11,7 @@
 
 class Card {
 protected:
-	bool isDiscarded;
+	bool isDiscarded;	
 	bool isPrizeCard;
 	bool isOnBench;
 	CardType cardType;
@@ -34,7 +34,7 @@ public:
 
 class PokemonCard : public Card{
 private:
-	Pokemon* p;
+	Pokemon *p;
 public:
 	PokemonCard(Pokemon *pokemon): 
 	Card(CardType::POKEMON){
@@ -43,10 +43,21 @@ public:
 
 	Pokemon* getPokemon(){return this->p;}
 
-}
+};
 
-class Trainer : public Card{
+class TrainerCard : public Card{
 private:
 public:
-}
+	TrainerCard(): 
+	Card(CardType::TRAINER){
+	}
+};
+
+class EnergyCard : public Card{
+private:
+public:
+	EnergyCard(): 
+	Card(CardType::ENERGY){
+	}
+};
 

@@ -6,31 +6,25 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Card.h"
 #include "DerivedPokemon.h"
 
 
 int main() {
-	std::vector<Pokemon*> pokemonDeck;
-	std::vector<Element*> elementType;
-	pokemonDeck.push_back(new Squirtle);
-	pokemonDeck.push_back(new Wartortle);
-	pokemonDeck.push_back(new Blastoise);
-	pokemonDeck.push_back(new Eevee);
-	pokemonDeck[0];
-	Squirtle s;
 
-	std::vector<PokemonCard*> pokeCards;
-	pokeCards.push_back(new PokemonCard(new Squirtle));
-	ElementType e = pokeCards[0]->getPokemon()->Attack1()->getElementAttackType();
-	//Element *e = p->getElement();
-	
+	std::vector<PokemonCard*> pokemonCards;
+	pokemonCards.push_back(new PokemonCard(new Squirtle));
 
+	ElementType e = pokemonCards[0]->getPokemon()->Attack1()->getElementAttackType();
+	pokemonCards[0]->getPokemon()->setIsAsleep(true);
 
-	cout << pokemonDeck[0]->getName() << " uses: " << pokemonDeck[0]->Attack1()->getAttackName() << endl;
-
-	for (int i = 0; i < 4; i++) {
-		std::cout << "Pokemon: " << pokemonDeck[i]->getName() << std::endl;
+	if( pokemonCards[0]->getPokemon()->getIsAsleep()){
+		cout << "Don't wake "<< pokemonCards[0]->getPokemon()->getName() << ". It is sleeping. " << endl;
 	}
+
+	// for (int i = 0; i < 4; i++) {
+	// 	std::cout << "Pokemon: " << pokemonCards[i]->getPokemon()->getName() << std::endl;
+	// }
 
 	return 0;
 }
