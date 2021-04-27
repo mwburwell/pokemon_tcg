@@ -174,7 +174,7 @@ These functions will return a pointer to the attack member declared in your PokÃ
 
 *Using Squirtle again*
 
-	class Squirtle : virtual public Basic, public Water {
+	class Squirtle : virtual public Basic{
 	private:
 		Attack* bubble;
 	public:
@@ -187,8 +187,9 @@ These functions will return a pointer to the attack member declared in your PokÃ
 		}
 
 		Attack* Attack1() { return this->bubble; }
-		Attack* Attack2() { return NULL; }
-		Attack* Attack3() { return NULL; }
+		Attack* Attack2() { return NULL; }	// virtual function
+		Attack* Attack3() { return NULL; }	// virtual function
+		Element* getElement() {return NULL; }	// virtual function
 	};
 	
 Declare the Attack pointer as a member variable:
