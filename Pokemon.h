@@ -118,6 +118,13 @@ public:
 	}
 
 	bool getIsAsleep() { return this->isAsleep; }
+	string getIsAsleep_toString() {
+		if(this->isAsleep){
+			return "true";
+		}else{
+			return "false";
+		}
+	}
 	void setIsAsleep(bool effected) {
 		this->isAsleep = effected;
 	}
