@@ -4,26 +4,32 @@ To add a Pokémon go to the Derived Pokémon file and Add your Pokémon here.
 
 *Here is an example of a Squirtle:*
 
-	class Squirtle : virtual public Basic, public Water {
+	class Squirtle : virtual public Basic{
 	private:
 		Attack* bubble;
 		Attack* waterGun;
+		Element* element;
 	public:
 		/// <param name = "None"> No parameters </param>
-		Squirtle() : Basic(7, "Squirtle", 50, 1), Water() {
+		Squirtle() : 
+		Basic(7, "Squirtle", 50, 1) {
 			this->bubble = new Bubble(0, 1, 0);
 			this->waterGun = new WaterGun(20, 1, 1);
+			this->element = new Water();
 		}
 		~Squirtle() {
 			delete bubble;
 			delete waterGun;
+			delet element;
 			bubble = NULL;
 			waterGun = NULL;
+			element = NULL;
 		}
 
 		Attack* Attack1() { return this->bubble; }
 		Attack* Attack2() { return this->waterGun; }
 		Attack* Attack3() { return NULL; }
+		Element* getElement() { return this->element;}
 	};
 
 
@@ -68,7 +74,7 @@ BASIC, STAGE_1, STAGE_2 parameters in order:
 
 ## Element Types:
 
-Derived Pokémon should also inherit an elemental Type.  There are currently 11 types programed **(FIGHTING, PSYCHIC, DARKNESS, METAL, COLORLESS, FIRE, GRASS, WATER, LIGHTNING, DRAGON, FAIRY)**.
+Derived Pokémon have an **Element** as a member.  There are currently 11 types programed **(FIGHTING, PSYCHIC, DARKNESS, METAL, COLORLESS, FIRE, GRASS, WATER, LIGHTNING, DRAGON, FAIRY)**.
 
 Each element inherits from the Elemental Type Constructor and adds it's attack element with the weakness and resistance types.
 
@@ -96,21 +102,63 @@ Each type has multiple constructors allowing flexibility in creating different e
 	Water(Element weak, Element resist)	// modify the weakness and the resistance
 		: ElementalType(Element::WATER, weak, resist) {}
 
-*How to use the elemental constructors:*
+## How to add an element to the pokemon
+
+Here is an example of a element added to squirtle:
+
+	class Squirtle : virtual public Basic{
+	private:
+		Element* element;
+	public:
+		/// <param name = "None"> No parameters </param>
+		Squirtle() : 
+		Basic(7, "Squirtle", 50, 1) {
+			this->element = new Water();
+		}
+		~Squirtle() {
+			delete element;
+			element = NULL;
+		}
+
+		Element* getElement() { return this->element;}
+	};
+	
+Add the element as an attribute:
+
+	Element* element;
+Initialize the element in the constructor with you Pokémon's element:
+
+	Squirtle() : 
+	Basic(7, "Squirtle", 50, 1) {
+		this->element = new Water();
+	}
+	
+If you want to specify a specific Weakness add it into the child Element constructor:
+
+	this->element = new Water(ElementType::GRASS);	// water attack type, weakness to GRASS, resistance to none
+
+More constructor examples:
+
+	this->element = new Water(ElementType::GRASS, ElementType::FIRE);	// water attack type, weakness to GRASS, resistance to FIRE
+	this->element = new Water(ElementType::GRASS, true);	// water attack type, weakness to GRASS, resistance to FIGHTING because flying Pokemon are resistant to FIGHTING
+	this->element = new Water(true);	// water attack type, weakness to LIGHTNING, resistance to FIGHTING
 
 
-	Squirtle() : Basic(7, "Squirtle", 50, 1), Water() 			// creates a basic water type Pokémon with weakness to LIGHTNING and no resistance
-	Squirtle() : Basic(7, "Squirtle", 50, 1), Water(Element::GRASS) 	// creates a water type Pokémon with weakness to GRASS and no resistance
-	Squirtle() : Basic(7, "Squirtle", 50, 1), Water(true) 			// creates a water type Flying Pokémon that is weak to LIGHTNING and resistant to FIGHTING
-	Squirtle() : Basic(7, "Squirtle", 50, 1), Water(Element::GRASS, true) 	// creates a water type Pokémon with weakness to GRASS and resistant to FIGHTING
-	Squirtle() : Basic(7, "Squirtle", 50, 1), Water(Element::GRASS, Element::FIRE) // creates a water type Pokémon with weakness to GRASS and resistant to FIRE
+
+Delete the element and set it's pointer to null once the Pokémon has been destroyed:
+
+	~Squirtle() {
+		delete element;
+		element = NULL;
+	}
+Finally write a getter for the element.  This is a virtual function and needs to be implemented in order to derive a Pokémon.
+
+	Element* getElement() { return this->element;}
 
 
-Some of the Element Types do not have all of these constructors.  Some elemental types do not specify a default constructor because they do not have a default weakness.  Some Pokémon can not fly, i.e. FIGHTING Pokémon.
+Some of the Element Types do not have all of the same constructors as the **Water** element.  Some elemental types do not specify a default constructor because they do not have a default weakness.  Some Pokémon can not fly, i.e. FIGHTING Pokémon.
 
 Look up your Pokémon's Elemental Type to see the Constructors available for the Pokémon.
-
-
 
 
 ## Adding Attacks To Pokémon:
