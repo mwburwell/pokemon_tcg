@@ -14,17 +14,23 @@ int main() {
 
 	std::vector<PokemonCard*> pokemonCards;
 	pokemonCards.push_back(new PokemonCard(new Squirtle));
+	pokemonCards.push_back(new PokemonCard(new Wartortle));
+	pokemonCards.push_back(new PokemonCard(new Blastoise));
+	pokemonCards.push_back(new PokemonCard(new Eevee));
 
-	ElementType e = pokemonCards[0]->getPokemon()->Attack1()->getElementAttackType();
+	// make pokemon go to sleep
 	pokemonCards[0]->getPokemon()->setIsAsleep(true);
 
+	// check if pokemon is asleep if so then don't wake them
 	if( pokemonCards[0]->getPokemon()->getIsAsleep()){
 		cout << "Don't wake "<< pokemonCards[0]->getPokemon()->getName() << ". It is sleeping. " << endl;
 	}
 
-	// for (int i = 0; i < 4; i++) {
-	// 	std::cout << "Pokemon: " << pokemonCards[i]->getPokemon()->getName() << std::endl;
-	// }
+	// print all pokemon in the pokemonCards and see if they are asleep or not
+	for(int i = 0; i < pokemonCards.size(); i++){
+		cout << "Pokemon: \t" << pokemonCards[i]->getPokemon()->getName() << endl;
+		cout << "Asleep: \t" << pokemonCards[i]->getPokemon()->getIsAsleep_toString() << endl << endl; 
+	}
 
 	return 0;
 }
