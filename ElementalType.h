@@ -8,19 +8,19 @@
 #include <string>
 #include "Enumerators.h"
 
-class ElementalType {
+class Element {
 protected:
 	int weaknessMultiplier;
 	int resistanceMultiplier;
-	Element weaknessType;
-	Element resistanceType;
-	Element attackType;
+	ElementType weaknessType;
+	ElementType resistanceType;
+	ElementType attackType;
 public:
-	ElementalType(Element attackType, Element weak, Element resistant, bool flyingType = false) {
+	Element(ElementType attackType, ElementType weak, ElementType resistant, bool flyingType = false) {
 		this->attackType = attackType;
 		this->weaknessType = weak;
 		if (flyingType) {
-			this->resistanceType = Element::FIGHTING;
+			this->resistanceType = ElementType::FIGHTING;
 		}
 		else {
 			this->resistanceType = resistant;
@@ -35,6 +35,11 @@ public:
 	Element getWeaknessType() { return this->weaknessType; }
 	Element getResistanceType() { return this->resistanceType; }
 	Element getAttackType() { return this->attackType; }
+	// virtual int getWeaknessMultiplier() = 0;
+	// virtual int getResistanceMultiplier() = 0;
+	// virtual Element getWeaknessType() = 0;
+	// virtual Element getResistanceType() = 0;
+	// virtual Element getAttackType() = 0;
 };
 
 
@@ -44,22 +49,22 @@ public:
  Usual Weakness:  WATER
  Resistance: NONE
  ******************************************************************************************/
-class Fire : public ElementalType {
+class Fire : public Element {
 public:
 	Fire()
-		: ElementalType(Element::FIRE, Element::WATER, Element::NONE) {}
+		: Element(ElementType::FIRE, ElementType::WATER, ElementType::NONE) {}
 
-	Fire(Element weak)
-		: ElementalType(Element::FIRE, weak, Element::NONE) {}
+	Fire(ElementType weak)
+		: Element(ElementType::FIRE, weak, ElementType::NONE) {}
 
 	Fire(bool canFly)
-		: ElementalType(Element::FIRE, Element::WATER, Element::NONE, canFly) {}
+		: Element(ElementType::FIRE, ElementType::WATER, ElementType::NONE, canFly) {}
 
-	Fire(Element weak, bool canFly)
-		: ElementalType(Element::FIRE, weak, Element::NONE, canFly) {}
+	Fire(ElementType weak, bool canFly)
+		: Element(ElementType::FIRE, weak, ElementType::NONE, canFly) {}
 
-	Fire(Element weak, Element resist)
-		: ElementalType(Element::FIRE, weak, resist) {}
+	Fire(ElementType weak, ElementType resist)
+		: Element(ElementType::FIRE, weak, resist) {}
 };
 
 
@@ -69,22 +74,22 @@ public:
  Usual Weakness:  Lightning
  Resistance: NONE
  ******************************************************************************************/
-class Water : public ElementalType {
+class Water : public Element {
 public:
 	Water()
-		: ElementalType(Element::WATER, Element::LIGHTNING, Element::NONE) {}
+		: Element(ElementType::WATER, ElementType::LIGHTNING, ElementType::NONE) {}
 
-	Water(Element weak)
-		: ElementalType(Element::WATER, weak, Element::NONE) {}
+	Water(ElementType weak)
+		: Element(ElementType::WATER, weak, ElementType::NONE) {}
 
 	Water(bool canFly)
-		: ElementalType(Element::WATER, Element::LIGHTNING, Element::NONE, canFly) {}
+		: Element(ElementType::WATER, ElementType::LIGHTNING, ElementType::NONE, canFly) {}
 
-	Water(Element weak, bool canFly)
-		: ElementalType(Element::WATER, weak, Element::NONE, canFly) {}
+	Water(ElementType weak, bool canFly)
+		: Element(ElementType::WATER, weak, ElementType::NONE, canFly) {}
 
-	Water(Element weak, Element resist)
-		: ElementalType(Element::WATER, weak, resist) {}
+	Water(ElementType weak, ElementType resist)
+		: Element(ElementType::WATER, weak, resist) {}
 };
 
 
@@ -94,14 +99,14 @@ public:
  Usual Weakness:  {GRASS, PSYCHIC, WATER}
  Resistance: NONE
  ******************************************************************************************/
-class Fighting : public ElementalType {
+class Fighting : public Element {
 public:
 	/* Fightin Pokemon can not fly, hence why no canfly constructor */
-	Fighting(Element weak)
-		: ElementalType(Element::FIGHTING, weak, Element::NONE) {}
+	Fighting(ElementType weak)
+		: Element(ElementType::FIGHTING, weak, ElementType::NONE) {}
 
-	Fighting(Element weak, Element resist)
-		: ElementalType(Element::FIGHTING, weak, resist) {}
+	Fighting(ElementType weak, ElementType resist)
+		: Element(ElementType::FIGHTING, weak, resist) {}
 };
 
 
@@ -111,22 +116,22 @@ public:
  Usual Weakness:  PSYCHIC
  Resistance: NONE
  ******************************************************************************************/
-class Psychic : public ElementalType {
+class Psychic : public Element {
 public:
 	Psychic()
-		: ElementalType(Element::PSYCHIC, Element::PSYCHIC, Element::NONE) {}
+		: Element(ElementType::PSYCHIC, ElementType::PSYCHIC, ElementType::NONE) {}
 
-	Psychic(Element weak)
-		: ElementalType(Element::PSYCHIC, weak, Element::NONE) {}
+	Psychic(ElementType weak)
+		: Element(ElementType::PSYCHIC, weak, ElementType::NONE) {}
 
 	Psychic(bool canFly)
-		: ElementalType(Element::PSYCHIC, Element::PSYCHIC, Element::NONE, canFly) {}
+		: Element(ElementType::PSYCHIC, ElementType::PSYCHIC, ElementType::NONE, canFly) {}
 
-	Psychic(Element weak, bool canFly)
-		: ElementalType(Element::PSYCHIC, weak, Element::NONE, canFly) {}
+	Psychic(ElementType weak, bool canFly)
+		: Element(ElementType::PSYCHIC, weak, ElementType::NONE, canFly) {}
 
-	Psychic(Element weak, Element resist)
-		: ElementalType(Element::PSYCHIC, weak, resist) {}
+	Psychic(ElementType weak, ElementType resist)
+		: Element(ElementType::PSYCHIC, weak, resist) {}
 };
 
 
@@ -136,22 +141,22 @@ public:
  Usual Weakness:  FIGHTING
  Resistance: PSYCHIC
  ******************************************************************************************/
-class Darkness : public ElementalType {
+class Darkness : public Element {
 public:
 	Darkness()
-		: ElementalType(Element::DARKNESS, Element::FIGHTING, Element::PSYCHIC) {}
+		: Element(ElementType::DARKNESS, ElementType::FIGHTING, ElementType::PSYCHIC) {}
 
 	Darkness(Element weak)
-		: ElementalType(Element::DARKNESS, weak, Element::PSYCHIC) {}
+		: Element(ElementType::DARKNESS, weak, ElementType::PSYCHIC) {}
 
 	Darkness(bool canFly)
-		: ElementalType(Element::DARKNESS, Element::FIGHTING, Element::PSYCHIC, canFly) {}
+		: Element(ElementType::DARKNESS, ElementType::FIGHTING, ElementType::PSYCHIC, canFly) {}
 
 	Darkness(Element weak, Element resist)
-		: ElementalType(Element::DARKNESS, weak, resist) {}
+		: Element(ElementType::DARKNESS, weak, resist) {}
 
 	Darkness(Element weak, bool canFly)
-		: ElementalType(Element::DARKNESS, weak, Element::PSYCHIC, canFly) {}
+		: Element(ElementType::DARKNESS, weak, ElementType::PSYCHIC, canFly) {}
 };
 
 
@@ -161,22 +166,22 @@ public:
  Usual Weakness:  FIRE
  Resistance: WATER
  ******************************************************************************************/
-class Metal : public ElementalType {
+class Metal : public Element {
 public:
 	Metal()
-		: ElementalType(Element::METAL, Element::FIRE, Element::WATER) {}
+		: Element(ElementType::METAL, ElementType::FIRE, ElementType::WATER) {}
 
-	Metal(Element weak)
-		: ElementalType(Element::METAL, weak, Element::WATER) {}
+	Metal(ElementType weak)
+		: Element(ElementType::METAL, weak, ElementType::WATER) {}
 
 	Metal(bool canFly)
-		: ElementalType(Element::METAL, Element::FIRE, Element::WATER, canFly) {}
+		: Element(ElementType::METAL, ElementType::FIRE, ElementType::WATER, canFly) {}
 
-	Metal(Element weak, Element resist)
-		: ElementalType(Element::METAL, weak, resist) {}
+	Metal(ElementType weak, ElementType resist)
+		: Element(ElementType::METAL, weak, resist) {}
 
-	Metal(Element weak, bool canFly)
-		: ElementalType(Element::METAL, weak, Element::WATER, canFly) {}
+	Metal(ElementType weak, bool canFly)
+		: Element(ElementType::METAL, weak, ElementType::WATER, canFly) {}
 };
 
 
@@ -186,22 +191,22 @@ public:
  Usual Weakness:  FIRE
  Resistance: WATER
  ******************************************************************************************/
-class Grass : public ElementalType {
+class Grass : public Element {
 public:
 	Grass()
-		: ElementalType(Element::GRASS, Element::FIRE, Element::WATER) {}
+		: Element(ElementType::GRASS, ElementType::FIRE, ElementType::WATER) {}
 
-	Grass(Element weak)
-		: ElementalType(Element::GRASS, weak, Element::WATER) {}
+	Grass(ElementType weak)
+		: Element(ElementType::GRASS, weak, ElementType::WATER) {}
 
 	Grass(bool canFly)
-		: ElementalType(Element::GRASS, Element::FIRE, Element::WATER, canFly) {}
+		: Element(ElementType::GRASS, ElementType::FIRE, ElementType::WATER, canFly) {}
 
-	Grass(Element weak, bool canFly)
-		: ElementalType(Element::GRASS, weak, Element::WATER, canFly) {}
+	Grass(ElementType weak, bool canFly)
+		: Element(ElementType::GRASS, weak, ElementType::WATER, canFly) {}
 
-	Grass(Element weak, Element resist)
-		: ElementalType(Element::GRASS, weak, resist) {}
+	Grass(ElementType weak, ElementType resist)
+		: Element(ElementType::GRASS, weak, resist) {}
 };
 
 
@@ -211,22 +216,22 @@ public:
  Usual Weakness:  FIGHTING
  Resistance: NONE
  ******************************************************************************************/
-class Lightning : public ElementalType {
+class Lightning : public Element {
 public:
 	Lightning()
-		: ElementalType(Element::LIGHTNING, Element::FIGHTING, Element::NONE) {}
+		: Element(ElementType::LIGHTNING, ElementType::FIGHTING, ElementType::NONE) {}
 
-	Lightning(Element weak)
-		: ElementalType(Element::LIGHTNING, weak, Element::NONE) {}
+	Lightning(ElementType weak)
+		: Element(ElementType::LIGHTNING, weak, ElementType::NONE) {}
 
 	Lightning(bool canFly)
-		: ElementalType(Element::LIGHTNING, Element::FIGHTING, Element::NONE, canFly) {}
+		: Element(ElementType::LIGHTNING, ElementType::FIGHTING, ElementType::NONE, canFly) {}
 
-	Lightning(Element weak, bool canFly)
-		: ElementalType(Element::LIGHTNING, weak, Element::NONE, canFly) {}
+	Lightning(ElementType weak, bool canFly)
+		: Element(ElementType::LIGHTNING, weak, ElementType::NONE, canFly) {}
 
-	Lightning(Element weak, Element resist)
-		: ElementalType(Element::LIGHTNING, weak, resist) {}
+	Lightning(ElementType weak, ElementType resist)
+		: Element(ElementType::LIGHTNING, weak, resist) {}
 };
 
 /*******************************************************************************************
@@ -234,14 +239,14 @@ public:
  Usual Weakness:  {FIGHTING, LIGHTNING, NONE}
  Resistance: NONE
  ******************************************************************************************/
-class Colorless : public ElementalType {
+class Colorless : public Element {
 public:
-	Colorless(Element weak)
-		: ElementalType(Element::COLORLESS, weak, Element::NONE) {}
-	Colorless(Element weak, bool canFly)
-		: ElementalType(Element::COLORLESS, weak, Element::NONE, canFly) {}
-	Colorless(Element weak, Element resist)
-		: ElementalType(Element::COLORLESS, weak, resist) {}
+	Colorless(ElementType weak)
+		: Element(ElementType::COLORLESS, weak, ElementType::NONE) {}
+	Colorless(ElementType weak, bool canFly)
+		: Element(ElementType::COLORLESS, weak, ElementType::NONE, canFly) {}
+	Colorless(ElementType weak, ElementType resist)
+		: Element(ElementType::COLORLESS, weak, resist) {}
 };
 
 /*******************************************************************************************
@@ -249,14 +254,14 @@ public:
  Usual Weakness:  {FAIRY, DRAGON}
  Resistance: NONE
  ******************************************************************************************/
-class Dragon : public ElementalType {
+class Dragon : public Element {
 public:
-	Dragon(Element weak)
-		: ElementalType(Element::DRAGON, weak, Element::NONE) {}
-	Dragon(Element weak, bool canFly)
-		: ElementalType(Element::DRAGON, weak, Element::NONE, canFly) {}
-	Dragon(Element weak, Element resist)
-		: ElementalType(Element::DRAGON, weak, resist) {}
+	Dragon(ElementType weak)
+		: Element(ElementType::DRAGON, weak, ElementType::NONE) {}
+	Dragon(ElementType weak, bool canFly)
+		: Element(ElementType::DRAGON, weak, ElementType::NONE, canFly) {}
+	Dragon(ElementType weak, ElementType resist)
+		: Element(ElementType::DRAGON, weak, resist) {}
 };
 
 /*******************************************************************************************
@@ -264,20 +269,20 @@ public:
  Usual Weakness:  METAL
  Resistance: DARKNESS
  ******************************************************************************************/
-class Fairy : public ElementalType {
+class Fairy : public Element {
 public:
 	Fairy()
-		: ElementalType(Element::FAIRY, Element::METAL, Element::DARKNESS) {}
+		: Element(ElementType::FAIRY, ElementType::METAL, ElementType::DARKNESS) {}
 
-	Fairy(Element weak)
-		: ElementalType(Element::FAIRY, weak, Element::DARKNESS) {}
+	Fairy(ElementType weak)
+		: Element(ElementType::FAIRY, weak, ElementType::DARKNESS) {}
 
 	Fairy(bool canFly)
-		: ElementalType(Element::FAIRY, Element::METAL, Element::DARKNESS, canFly) {}
+		: Element(ElementType::FAIRY, ElementType::METAL, ElementType::DARKNESS, canFly) {}
 
-	Fairy(Element weak, bool canFly)
-		: ElementalType(Element::FAIRY, weak, Element::DARKNESS, canFly) {}
+	Fairy(ElementType weak, bool canFly)
+		: Element(ElementType::FAIRY, weak, ElementType::DARKNESS, canFly) {}
 
-	Fairy(Element weak, Element resist)
-		: ElementalType(Element::FAIRY, weak, resist) {}
+	Fairy(ElementType weak, ElementType resist)
+		: Element(ElementType::FAIRY, weak, resist) {}
 };

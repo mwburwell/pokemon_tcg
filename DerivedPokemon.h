@@ -23,15 +23,18 @@
 /// </summary>
 /// <param name = "None"> None </param>
 /// <returns> A Squirtle </returns>
-class Squirtle : virtual public Basic, public Water {
+class Squirtle : virtual public Basic{
 private:
 	Attack* bubble;
 	Attack* waterGun;
+	Element* element;
 public:
 	/// <param name = "None"> No parameters </param>
-	Squirtle() : Basic(7, "Squirtle", 50, 1), Water() {
+	Squirtle() : 
+	Basic(7, "Squirtle", 50, 1) {
 		this->bubble = new Bubble(0, 1, 0);
 		this->waterGun = new WaterGun(20, 1, 1);
+		element = new Water();
 	}
 	~Squirtle() {
 		delete bubble;
@@ -43,6 +46,7 @@ public:
 	Attack* Attack1() { return this->bubble; }
 	Attack* Attack2() { return this->waterGun; }
 	Attack* Attack3() { return NULL; }
+	Element* getElement() { return this->element;}
 };
 
 
@@ -59,27 +63,38 @@ public:
 /// </summary>
 /// <param name = "None"> None </param>
 /// <returns> A Squirtle </returns>
-class Wartortle : virtual public Stage_1, public Water {
+class Wartortle : public Stage_1 {
 private:
 	Attack* bubble;
 	Attack* surf;
+	Element* element;
 	int cardIDEvolvedFrom;
 public:
-	Wartortle() : Stage_1(8, "Wartortle", 80, 2), Water() {
+	Wartortle() : 
+	Stage_1(8, "Wartortle", 80, 2) {
 		this->cardIDEvolvedFrom = 7;			// evolves from squirtle whose ID number is 7
 		this->bubble = new Bubble(20, 1, 1);
 		this->surf = new Surf(50, 1, 2);
+		this->element = new Water();
 	}
 	~Wartortle() {
 		delete bubble;
 		delete surf;
+		delete element;
 		bubble = NULL;
 		surf = NULL;
+		element = NULL;
 	}
 
 	Attack* Attack1() { return this->bubble; }
 	Attack* Attack2() { return this->surf; }
 	Attack* Attack3() { return NULL; }
+	Element* getElement() { return this->element;}
+	// int getWeaknessMultiplier() { return this->weaknessMultiplier; }
+	// int getResistanceMultiplier() { return this->resistanceMultiplier; }
+	// Element getWeaknessType() { return this->weaknessType; }
+	// Element getResistanceType() { return this->resistanceType; }
+	// Element getAttackType() { return this->attackType; }
 };
 
 
@@ -96,21 +111,27 @@ public:
 /// </summary>
 /// <param name = "None"> None </param>
 /// <returns> A Blastoise </returns>
-class Blastoise : virtual public Stage_2, public Water {
+class Blastoise : virtual public Stage_2 {
 private:
 	Attack* attack1;
 	Attack* attack2;
 	int cardIDEvolvedFrom;
+	Element* element;
 public:
-	Blastoise() : Stage_2(9, "Blastoise", 180, 3), Water() {
+	Blastoise() : 
+	Stage_2(9, "Blastoise", 180, 3) {
 		this->cardIDEvolvedFrom = 8;			// evolves from Wartotle whose ID number is 8
+		this->element = new Water();
 	}
 	~Blastoise() {
+		delete element;
+		element = NULL;
 	}
 
 	Attack* Attack1() { return NULL; }
 	Attack* Attack2() { return NULL; }
 	Attack* Attack3() { return NULL; }
+	Element* getElement() {return this->element; }
 
 };
 
@@ -128,15 +149,22 @@ public:
 /// </summary>
 /// <param name = "None"> None </param>
 /// <returns> An Eevee </returns>
-class Eevee : public Basic, public Colorless {
+class Eevee : public Basic {
 private:
+	Attack* attack1;
+	Attack* attack2;
+	Element* element;
 public:
 	Eevee() : Basic(133, "Eevee", 80, 1), Colorless(Element::FIGHTING) {
+		element = new Colorless();
 	}
 	~Eevee() {
+		delete element;
+		element = NULL:
 	}
 
-	Attack* Attack1() { return NULL; }
-	Attack* Attack2() { return NULL; }
+	Attack* Attack1() { return this->attack1; }
+	Attack* Attack2() { return this->attack2; }
 	Attack* Attack3() { return NULL; }
+	Element* getElement() { return this->element;}
 };

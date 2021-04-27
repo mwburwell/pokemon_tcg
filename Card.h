@@ -26,17 +26,27 @@ public:
 
 	}
 
-	void createDeck(){
-
-	}
-
-	void Deal(){
-
-	}
-
 	void Discard() {
 		this->isDiscarded = true;
 	}
 
 };
+
+class PokemonCard : public Card{
+private:
+	Pokemon* p;
+public:
+	PokemonCard(Pokemon *pokemon): 
+	Card(CardType::POKEMON){
+		p = pokemon;
+	}
+
+	Pokemon* getPokemon(){return this->p;}
+
+}
+
+class Trainer : public Card{
+private:
+public:
+}
 

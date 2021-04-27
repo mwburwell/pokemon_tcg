@@ -129,6 +129,7 @@ public:
 	virtual Attack* Attack1() = 0;
 	virtual Attack* Attack2() = 0;
 	virtual Attack* Attack3() = 0;
+	virtual Element* getElement() = 0;
 
 };
 

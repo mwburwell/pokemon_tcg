@@ -11,7 +11,7 @@ class Attack {
 private:
 	std::string attackName, description;
 	int hitpoints;
-	Element attackElement;
+	ElementType attackElement;
 	int elementTypeCost;
 	int colorlessTypeCost;
 	bool causeStatusEffect;
@@ -26,7 +26,7 @@ public:
 	/// <param name = "elCost"> - Required number of Elemental specific energy cards that need to be attached to the pokemon to use this Attack</param>
 	/// <param name = "coCost"> - Required number of additional energy cards of ANY type that need to be attached to the pokemon to use this Attack</param>
 	/// <param name = "attackElement"> - The element type of the Attack</param>
-	Attack(std::string attackName, std::string desc, int hitpoints, int elCost, int coCost, Element attackElement) {
+	Attack(std::string attackName, std::string desc, int hitpoints, int elCost, int coCost, ElementType attackElement) {
 		this->attackName = attackName;
 		this->hitpoints = hitpoints;
 		this->attackElement = attackElement;
@@ -44,7 +44,7 @@ public:
 	/// <param name = "colorlessCost"> - Required number of additional energy cards of ANY type that need to be attached to the pokemon to use this Attack</param>
 	/// <param name = "attackElement"> - The element type of the Attack</param>
 	/// <param name = "statusEffect"> - The StatusEffect caused by the attack</param>
-	Attack(std::string attackName, std::string desc, int hitpoints, int elCost, int coCost, Element attackElement, StatusEffects statusEffect) {
+	Attack(std::string attackName, std::string desc, int hitpoints, int elCost, int coCost, ElementType attackElement, StatusEffects statusEffect) {
 		this->attackName = attackName;
 		this->hitpoints = hitpoints;
 		this->attackElement = attackElement;
@@ -57,7 +57,7 @@ public:
 
 	std::string getAttackName() { return this->attackName; }
 	int getHitpoints() { return this->hitpoints; }
-	Element getElementAttackType() { return this->attackElement; }
+	ElementType getElementAttackType() { return this->attackElement; }
 	int getElementTypeCost() { return this->elementTypeCost; }
 	int getColorlessTypeCost() { return this->colorlessTypeCost; }
 	int getTotalAttackCost() { return this->colorlessTypeCost + this->elementTypeCost; }
