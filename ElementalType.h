@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include "Pokemon.h"
+#include "Enumerators.h"
 
 class Element {
 protected:
@@ -19,12 +20,7 @@ public:
 	Element(ElementType attackType, ElementType weak, ElementType resistant, bool flyingType = false) {
 		this->attackType = attackType;
 		this->weaknessType = weak;
-		if (flyingType) {
-			this->resistanceType = ElementType::FIGHTING;
-		}
-		else {
-			this->resistanceType = resistant;
-		}
+		this->resistanceType = resistant;
 		this->weaknessMultiplier = 2;		// Pokemon Takes 2 times the damage if weak against attack 
 		this->resistanceMultiplier = 20;	// Pokemon takes 20 less damage if resistance to attack
 	}

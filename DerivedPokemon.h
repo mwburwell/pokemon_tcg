@@ -10,6 +10,7 @@
 #include <vector>
 #include "Pokemon.h"
 #include "ElementalType.h"
+#include "Enumerators.h"
 
 /// <summary>
 /// <para>Squirtle - BASIC </para>

@@ -8,13 +8,18 @@
 #include <vector>
 #include "Card.h"
 #include "DerivedPokemon.h"
+#include "Enumerators.h"
 
 
 int main() {
-
 	std::vector<Pokemon*> pokemonDeck;
 	pokemonDeck.push_back(new Geodude());
 	pokemonDeck.push_back(new Squirtle());
+
+	std::vector<Pokemon*>::iterator it;
+	for(it = pokemonDeck.begin(); it != pokemonDeck.end(); it++){
+		std::cout << "Name: " << (*it)->getName() << std::endl;
+	}
 
 	return 0;
 }

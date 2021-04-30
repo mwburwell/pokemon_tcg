@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 #include "Pokemon.h"
-
+#include "Enumerators.h"
 class Card {
 protected:
 	bool isDiscarded;	

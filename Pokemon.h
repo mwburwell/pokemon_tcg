@@ -10,17 +10,8 @@
 #include <map>
 #include "Card.h"
 #include "ElementalType.h"
+#include "Enumerators.h"
 
-/* Enumerations and string maps for Element Types */
-enum class ElementType { PSYCHIC, COLORLESS, FIRE, GRASS, WATER, LIGHTNING };
-std::map<ElementType, std::string> elementTypeNames = {
-	{ElementType::PSYCHIC, "PSYCHIC"},
-	{ElementType::COLORLESS,"COLORLESS"},
-	{ElementType::FIRE,"FIRE"},
-	{ElementType::GRASS,"GRASS"},
-	{ElementType::WATER,"WATER"},
-	{ElementType::LIGHTNING,"LIGHTNING"},
-};
 
 
 using namespace std;
