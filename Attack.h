@@ -92,7 +92,6 @@ public:
 			hitPoints, elementCost, colorlessCost, ElementType::WATER) {}
 };
 
-
 class Surf : public Attack {
 public:
 	/// <summary>
