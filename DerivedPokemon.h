@@ -152,7 +152,7 @@ public:
 		this->attack1Name = "Wags Tail";
 		this->attack2Name = "Tackle";
 		this->attack3Name = "Critical Tackle";
-		element = new Colorless(ElementType::FIGHTING);
+		element = new Colorless();
 	}
 	~Eevee() {
 		delete element;
@@ -181,16 +181,17 @@ private:
 	string attack1Name;
 	string attack2Name;
 	string attack3Name;
+	Element* element;
 public:
 	/// <param name = "None"> No parameters </param>
-	Squirtle() : 
+	Geodude() : 
 	Pokemon("Geodude", 70) {
 		this->attack1Name = "Tackle";
 		this->attack2Name = "Rock Slide";
 		this->attack3Name = "Critical Rock Slide";
 		this->element = new Grass();
 	}
-	~Squirtle() {
+	~Geodude() {
 		delete element;
 		element = NULL;
 	}

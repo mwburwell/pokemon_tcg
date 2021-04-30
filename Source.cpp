@@ -14,7 +14,7 @@ int main() {
 
 	std::vector<Pokemon*> pokemonDeck;
 	pokemonDeck.push_back(new Geodude());
-	pokemonDeck[0]->
+	pokemonDeck.push_back(new Squirtle());
 
 	return 0;
 }

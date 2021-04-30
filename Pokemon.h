@@ -7,9 +7,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
 #include "Card.h"
 #include "ElementalType.h"
-#include "Enumerators.h"
 
 /* Enumerations and string maps for Element Types */
 enum class ElementType { PSYCHIC, COLORLESS, FIRE, GRASS, WATER, LIGHTNING };
