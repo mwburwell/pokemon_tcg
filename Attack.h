@@ -14,6 +14,7 @@ private:
 	ElementType attackElement;
 	int elementTypeCost;
 	int colorlessTypeCost;
+	bool ifCoinFlipAttack;
 	bool causeStatusEffect;
 	StatusEffects effect;
 public:
@@ -74,6 +75,8 @@ public:
 	/// <param name = "elementCost"> - Required number of Elemental specific energy cards that need to be attached to the pokemon to use this Attack</param>
 	/// <param name = "colorlessCost"> - Required number of additional energy cards of ANY type that need to be attached to the pokemon to use this Attack</param>
 	Bubble(int hitPoints, int elementCost, int colorlessCost) :
+
+
 		Attack("Bubble", "Flip a coin, if heads the defending Pokemon is now paralyzed",
 			hitPoints, elementCost, colorlessCost, ElementType::WATER, StatusEffects::PARALYSIS) {
 	}
@@ -104,3 +107,11 @@ public:
 		Attack("Surf", "Cowabunga",
 			hitPoints, elementCost, colorlessCost, ElementType::WATER) {}
 };
+
+class Growl : public Attack{
+	Growl(int hitPoints, int elementCost, int colorlessCost):
+	Attack("Growl", "During your opponent's next turn, any damage done by attacks from the Defending Pokémon is reduced by 20 (before applying Weakness and Resistance)",
+		hitPoints, elementCost, colorlessCost, ElementType::COLORLESS){
+
+	}
+}
