@@ -1,5 +1,7 @@
 
 #pragma once
+#include <map>
+#include <string>
 /* Enumerations and string maps for Element Types */
 enum class ElementType { PSYCHIC, COLORLESS, FIRE, GRASS, WATER, LIGHTNING };
 const std::map<ElementType, std::string> elementTypeNames = {
