@@ -24,17 +24,17 @@
 /// <returns> A Squirtle </returns>
 class Squirtle : public Pokemon {
 private:
-	int attack1;
 	string attack1Name;
-	int attack2;
 	string attack2Name;
-	int attack3;
 	string attack3Name;
 	Element* element;
 public:
 	/// <param name = "None"> No parameters </param>
 	Squirtle() : 
 	Pokemon("Squirtle", 50) {
+		this->attack1Name = ;
+		this->attack2Name = ;
+		this->attack3Name = ;
 		this->element = new Water();
 	}
 	~Squirtle() {
@@ -43,6 +43,9 @@ public:
 	}
 
 	Element* getElement() { return this->element;}
+	std::string getAttack1Name() {return this->attack1Name;}
+	std::string getAttack2Name() {return this->attack2Name;}
+	std::string getAttack3Name() {return this->attack3Name;}
 };
 
 
@@ -61,16 +64,16 @@ public:
 /// <returns> A Squirtle </returns>j
 class Wartortle : public Pokemon {
 private:
-	int attack1;
 	string attack1Name;
-	int attack2;
 	string attack2Name;
-	int attack3;
 	string attack3Name;
 	Element* element;
 public:
 	Wartortle() : 
 	Pokemon("Wartortle", 80) {
+		this->attack1Name = ;
+		this->attack2Name = ;
+		this->attack3Name = ;
 		this->element = new Water();
 	}
 	~Wartortle() {
@@ -79,6 +82,9 @@ public:
 	}
 
 	Element* getElement() { return this->element;}
+	std::string getAttack1Name() {return this->attack1Name;}
+	std::string getAttack2Name() {return this->attack2Name;}
+	std::string getAttack3Name() {return this->attack3Name;}
 };
 
 
@@ -97,17 +103,16 @@ public:
 /// <returns> A Blastoise </returns>
 class Blastoise : public Pokemon {
 private:
-	int attack1;
 	string attack1Name;
-	int attack2;
 	string attack2Name;
-	int attack3;
 	string attack3Name;
 	Element* element;
 public:
 	Blastoise() : 
 	Pokemon("Blastoise", 180) {
-		this->cardIDEvolvedFrom = 8;			// evolves from Wartotle whose ID number is 8
+		this->attack1Name = ;
+		this->attack2Name = ;
+		this->attack3Name = ;
 		this->element = new Water();
 	}
 	~Blastoise() {
@@ -116,6 +121,9 @@ public:
 	}
 
 	Element* getElement() {return this->element; }
+	std::string getAttack1Name() {return this->attack1Name;}
+	std::string getAttack2Name() {return this->attack2Name;}
+	std::string getAttack3Name() {return this->attack3Name;}
 };
 
 
@@ -134,16 +142,16 @@ public:
 /// <returns> An Eevee </returns>
 class Eevee : public Pokemon {
 private:
-	int attack1;
 	string attack1Name;
-	int attack2;
 	string attack2Name;
-	int attack3;
 	string attack3Name;
 	Element* element;
 public:
 	Eevee() : 
 	Pokemon("Eevee", 80) {
+		this->attack1Name = ;
+		this->attack2Name = ;
+		this->attack3Name = ;
 		element = new Colorless(ElementType::FIGHTING);
 	}
 	~Eevee() {
@@ -152,4 +160,44 @@ public:
 	}
 
 	Element* getElement() { return this->element;}
+	std::string getAttack1Name() {return this->attack1Name;}
+	std::string getAttack2Name() {return this->attack2Name;}
+	std::string getAttack3Name() {return this->attack3Name;}
+};
+
+/// <summary>
+/// <para>Squirtle - BASIC </para>
+/// <para>Max HP: 50</para>
+/// <para>Attack1 - Bubble, 0 hitpoints, 1 water, 0 colorlesss, can cause paralysis</para>
+/// <para>Attack2 - WaterGun, 20 hitpoints, 1 water, 1 colorless</para>
+/// <para>Element Type: Water</para>
+/// <para>Weakness: Lightning</para>
+/// <para>Resistance: None</para>
+/// </summary>
+/// <param name = "None"> None </param>
+/// <returns> A Squirtle </returns>
+class Geodude : public Pokemon {
+private:
+	string attack1Name;
+	string attack2Name;
+	string attack3Name;
+public:
+	/// <param name = "None"> No parameters </param>
+	Squirtle() : 
+	Pokemon("Geodude", 70) {
+		this->attack1Name = "Tackle";
+		this->attack2Name = "Rock Slide";
+		this->attack3Name = "Critical Rock Slide";
+		this->element = new Grass();
+	}
+	~Squirtle() {
+		delete element;
+		element = NULL;
+	}
+
+	Element* getElement() { return this->element;}
+	std::string getAttack1Name() {return this->attack1Name;}
+	std::string getAttack2Name() {return this->attack2Name;}
+	std::string getAttack3Name() {return this->attack3Name;}
+
 };
