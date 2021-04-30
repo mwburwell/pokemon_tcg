@@ -9,8 +9,19 @@
 #include <vector>
 #include "Card.h"
 #include "ElementalType.h"
-#include "Attack.h"
 #include "Enumerators.h"
+
+/* Enumerations and string maps for Element Types */
+enum class ElementType { PSYCHIC, COLORLESS, FIRE, GRASS, WATER, LIGHTNING };
+std::map<ElementType, std::string> elementTypeNames = {
+	{ElementType::PSYCHIC, "PSYCHIC"},
+	{ElementType::COLORLESS,"COLORLESS"},
+	{ElementType::FIRE,"FIRE"},
+	{ElementType::GRASS,"GRASS"},
+	{ElementType::WATER,"WATER"},
+	{ElementType::LIGHTNING,"LIGHTNING"},
+};
+
 
 using namespace std;
 
@@ -19,48 +30,21 @@ using namespace std;
 /// </summary>
 class Pokemon {
 private:
-	int cardIDNumber;
 	int hitPoints;
 	int maxHP;
-	PokemonCardType cardType;
-	int retreatCost;
-	bool statusIsAffected;
-	bool isPoisoned;
-	bool isAsleep;
-	bool isBurnt;
-	bool isConfused;
-	bool isParalyzed;
 	std::string name;
 public:
-	Pokemon(int cardIDNumber, std::string name, int maxHP, int retreatCost, PokemonCardType type) {
-		setCardIDNumber(cardIDNumber);
+	Pokemon(std::string name, int maxHP) {
 		setName(name);
 		setMaxHP(maxHP);
-		this->cardType = type;
-		setRetreatCost(retreatCost);
 		setHitPoints(0);
-		setIsPoisoned(false);
-		setIsAsleep(false);
-		setIsBurnt(false);
-		setIsParalyzed(false);
-		setIsConfused(false);
-		this->statusIsAffected = false;
 	}
-	// ~Pokemon() {
-	// 	delete this;
-	// }
 
 	std::string getName() { return name; }
 	void setName(std::string s) {
 		this->name = s;
 	}
 
-	int getCardIDNumber() { return cardIDNumber; }
-	void setCardIDNumber(int idNumber) {
-		if (idNumber < 0)
-			throw std::underflow_error("Card number can not be less than 0");
-		this->cardIDNumber = idNumber;
-	}
 
 	int getMaxHP() {
 		return this->maxHP;
@@ -91,97 +75,6 @@ public:
 			this->hitPoints -= healingItem;
 	}
 
-	int getRetreatCost() {
-		return retreatCost;
-	}
-	void setRetreatCost(int cost) {
-		if (cost < 0)
-			throw std::underflow_error("Retreat cost can not be less than 0");
-		if (cost > 5)
-			throw std::overflow_error("The maximum cost for retreat is 5");
-		this->retreatCost = cost;
-	}
-
-	bool getIsPoisoned() { return this->isPoisoned; }
-	void setIsPoisoned(bool effected) {
-		this->isPoisoned = effected;
-	}
-
-	bool getIsConfused() { return this->isConfused; }
-	void setIsConfused(bool effected) {
-		this->isConfused = effected;
-	}
-
-	bool getIsBurnt() { return this->isBurnt; }
-	void setIsBurnt(bool effected) {
-		this->isBurnt = effected;
-	}
-
-	bool getIsAsleep() { return this->isAsleep; }
-	string getIsAsleep_toString() {
-		if(this->isAsleep){
-			return "true";
-		}else{
-			return "false";
-		}
-	}
-	void setIsAsleep(bool effected) {
-		this->isAsleep = effected;
-	}
-
-	bool getIsParalyzed() { return this->isParalyzed; }
-	void setIsParalyzed(bool effected) {
-		this->isParalyzed = effected;
-	}
-
-	virtual Attack* Attack1() = 0;
-	virtual Attack* Attack2() = 0;
-	virtual Attack* Attack3() = 0;
 	virtual Element* getElement() = 0;
-
 };
 
-class Basic : public Pokemon {
-private:
-public:
-	/// <summary>
-	/// Basic Pokemon Derived class
-	/// </summary>
-	/// <param name="cardIDNumber">: The ID number of the Card</param>
-	/// <param name="name">: The name of the Pokemon </param>
-	/// <param name="maxHP">: The max HP of the Pokemon</param>
-	/// <param name="retreatCost">: The cost to retreat </param>
-	Basic(int cardIDNumber, std::string name, int maxHP, int retreatCost) : Pokemon(cardIDNumber, name, maxHP, retreatCost, PokemonCardType::BASIC) {
-
-	}
-};
-
-class Stage_1 : public Pokemon {
-private:
-public:
-	/// <summary>
-	/// Stage 1 evolution type
-	/// </summary>
-	/// <param name="cardIDNumber">:  The ID number of the Card</param>
-	/// <param name="name">:  The name of the Pokemon</param>
-	/// <param name="maxHP">:  The max HP of the Pokemon</param>
-	/// <param name="retreatCost">:  The cost to retreat</param>
-	Stage_1(int cardIDNumber, std::string name, int maxHP, int retreatCost) : Pokemon(cardIDNumber, name, maxHP, retreatCost, PokemonCardType::STAGE_1) {
-
-	}
-};
-
-class Stage_2 : public Pokemon {
-private:
-public:
-	/// <summary>
-	/// Stage 2 evolution Pokemon
-	/// </summary>
-	/// <param name="cardIDNumber">:  The ID number of the Card</param>
-	/// <param name="name">:  The name of the Pokemon</param>
-	/// <param name="maxHP">:  The maximum HP of the Pokemon</param>
-	/// <param name="retreatCost">:  The retreat cost of the Pokemon</param>
-	Stage_2(int cardIDNumber, std::string name, int maxHP, int retreatCost) : Pokemon(cardIDNumber, name, maxHP, retreatCost, PokemonCardType::STAGE_2) {
-
-	}
-};

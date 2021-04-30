@@ -6,7 +6,7 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "Enumerators.h"
+#include "Pokemon.h"
 
 class Element {
 protected:
@@ -35,11 +35,6 @@ public:
 	ElementType getWeaknessType() { return this->weaknessType; }
 	ElementType getResistanceType() { return this->resistanceType; }
 	ElementType getAttackType() { return this->attackType; }
-	// virtual int getWeaknessMultiplier() = 0;
-	// virtual int getResistanceMultiplier() = 0;
-	// virtual Element getWeaknessType() = 0;
-	// virtual Element getResistanceType() = 0;
-	// virtual Element getAttackType() = 0;
 };
 
 
