@@ -61,6 +61,10 @@ public:
 	virtual std::string getAttack2Name() = 0;
 	virtual std::string getAttack3Name() = 0;
 
+	friend ostream &operator<<(ostream &out, Pokemon *p){
+		out << p->getName();
+		return out;
+	}
 private:
 	void setHitPoints(int hitPoints) {
 		if (hitPoints < 0)

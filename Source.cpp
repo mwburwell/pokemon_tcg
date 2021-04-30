@@ -18,7 +18,7 @@ int main() {
 
 	std::vector<Pokemon*>::iterator it;
 	for(it = pokemonDeck.begin(); it != pokemonDeck.end(); it++){
-		std::cout << "Name: " << (*it)->getName() << std::endl;
+		std::cout << *it<< std::endl;
 	}
 
 	return 0;
