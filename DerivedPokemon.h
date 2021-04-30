@@ -32,9 +32,9 @@ public:
 	/// <param name = "None"> No parameters </param>
 	Squirtle() : 
 	Pokemon("Squirtle", 50) {
-		this->attack1Name = ;
-		this->attack2Name = ;
-		this->attack3Name = ;
+		this->attack1Name = "Tackle";
+		this->attack2Name = "Bubble";
+		this->attack3Name = "Water Gun";
 		this->element = new Water();
 	}
 	~Squirtle() {
@@ -71,9 +71,9 @@ private:
 public:
 	Wartortle() : 
 	Pokemon("Wartortle", 80) {
-		this->attack1Name = ;
-		this->attack2Name = ;
-		this->attack3Name = ;
+		this->attack1Name = "Water Gun";
+		this->attack2Name = "Surf";
+		this->attack3Name = "Critical Surf";
 		this->element = new Water();
 	}
 	~Wartortle() {
@@ -110,9 +110,9 @@ private:
 public:
 	Blastoise() : 
 	Pokemon("Blastoise", 180) {
-		this->attack1Name = ;
-		this->attack2Name = ;
-		this->attack3Name = ;
+		this->attack1Name = "Tackle";
+		this->attack2Name = "Water Gun";
+		this->attack3Name = "Critical Water Gun";
 		this->element = new Water();
 	}
 	~Blastoise() {
@@ -149,9 +149,9 @@ private:
 public:
 	Eevee() : 
 	Pokemon("Eevee", 80) {
-		this->attack1Name = ;
-		this->attack2Name = ;
-		this->attack3Name = ;
+		this->attack1Name = "Wags Tail";
+		this->attack2Name = "Tackle";
+		this->attack3Name = "Critical Tackle";
 		element = new Colorless(ElementType::FIGHTING);
 	}
 	~Eevee() {
