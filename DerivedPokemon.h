@@ -24,6 +24,12 @@
 /// <returns> A Squirtle </returns>
 class Squirtle : public Pokemon {
 private:
+	int attack1;
+	string attack1Name;
+	int attack2;
+	string attack2Name;
+	int attack3;
+	string attack3Name;
 	Element* element;
 public:
 	/// <param name = "None"> No parameters </param>
@@ -55,10 +61,12 @@ public:
 /// <returns> A Squirtle </returns>j
 class Wartortle : public Pokemon {
 private:
-	int attack;
-	string attackName;
-	int criticalAttack;
-	string criticalAttack;
+	int attack1;
+	string attack1Name;
+	int attack2;
+	string attack2Name;
+	int attack3;
+	string attack3Name;
 	Element* element;
 public:
 	Wartortle() : 
@@ -89,7 +97,12 @@ public:
 /// <returns> A Blastoise </returns>
 class Blastoise : public Pokemon {
 private:
-	int cardIDEvolvedFrom;
+	int attack1;
+	string attack1Name;
+	int attack2;
+	string attack2Name;
+	int attack3;
+	string attack3Name;
 	Element* element;
 public:
 	Blastoise() : 
@@ -121,6 +134,12 @@ public:
 /// <returns> An Eevee </returns>
 class Eevee : public Pokemon {
 private:
+	int attack1;
+	string attack1Name;
+	int attack2;
+	string attack2Name;
+	int attack3;
+	string attack3Name;
 	Element* element;
 public:
 	Eevee() : 
