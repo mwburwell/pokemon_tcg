@@ -19,7 +19,7 @@ There is a template at the bottom of the File with instructions on how to add yo
 			this->element = new ___________();		// <--- input your pokemon's element TYPE
 									// elements to choose from: Psychic, Colorless, Fire, Grass, Water, Lightning 
 		}
-		~Geodude() {
+		~____________() {					// <-- add your pokemon's name to the constructor
 			delete element;
 			element = NULL;
 		}
