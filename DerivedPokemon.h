@@ -223,9 +223,9 @@ public:
 		this->attack2Name = "___________";		// <-- input the name of second attack; string type (string )
 		this->attack3Name = "___________";		// <-- input the name of third attack or name it critical second attack; (string )
 		this->element = new ___________();		// <--- input your pokemon's element TYPE
-												// elements to choose from: Psychic, Colorless, Fire, Grass, Water, Lightning 
+								// elements to choose from: Psychic, Colorless, Fire, Grass, Water, Lightning 
 	}
-	~Geodude() {
+	~__________() {						// <-- add name of Pokemon to the destructor
 		delete element;
 		element = NULL;
 	}
