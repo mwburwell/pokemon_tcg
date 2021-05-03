@@ -166,30 +166,21 @@ public:
 	std::string getAttack3Name() {return this->attack3Name;}
 };
 
-/// <summary>
-/// <para>Squirtle - BASIC </para>
-/// <para>Max HP: 50</para>
-/// <para>Attack1 - Bubble, 0 hitpoints, 1 water, 0 colorlesss, can cause paralysis</para>
-/// <para>Attack2 - WaterGun, 20 hitpoints, 1 water, 1 colorless</para>
-/// <para>Element Type: Water</para>
-/// <para>Weakness: Lightning</para>
-/// <para>Resistance: None</para>
-/// </summary>
-/// <param name = "None"> None </param>
-/// <returns> A Squirtle </returns>
-class Geodude : public Pokemon {
+/**
+ * Jordan's Pokemon 
+ * */
+class Geodude : public Pokemon {		
 private:
 	string attack1Name;
 	string attack2Name;
 	string attack3Name;
 	Element* element;
 public:
-	/// <param name = "None"> No parameters </param>
-	Geodude() : 
-	Pokemon("Geodude", 70) {
-		this->attack1Name = "Tackle";
-		this->attack2Name = "Rock Slide";
-		this->attack3Name = "Critical Rock Slide";
+	Geodude() : 					
+		Pokemon("Geodude", 70) {
+		this->attack1Name = "Rock Throw";
+		this->attack2Name = "Stone Barrage";
+		this->attack3Name = "Critical Rock Throw";
 		this->element = new Grass();
 	}
 	~Geodude() {
@@ -197,12 +188,95 @@ public:
 		element = NULL;
 	}
 
-	Element* getElement() { return this->element;}
-	std::string getAttack1Name() {return this->attack1Name;}
-	std::string getAttack2Name() {return this->attack2Name;}
-	std::string getAttack3Name() {return this->attack3Name;}
+	Element* getElement() { return this->element; }
+	std::string getAttack1Name() { return this->attack1Name; }
+	std::string getAttack2Name() { return this->attack2Name; }
+	std::string getAttack3Name() { return this->attack3Name; }
 
 };
+
+class Mew : public Pokemon {		
+private:
+	string attack1Name;
+	string attack2Name;
+	string attack3Name;
+	Element* element;
+public:
+	Mew() : 					
+		Pokemon("Mew", 50) {
+		this->attack1Name = "Psywave";
+		this->attack2Name = "Devolution Beam";	
+		this->attack3Name = "Critical PsyWave";
+		this->element = new Psychic();		
+								
+	}
+	~Mew() {
+		delete element;
+		element = NULL;
+	}
+
+	Element* getElement() { return this->element; }
+	std::string getAttack1Name() { return this->attack1Name; }
+	std::string getAttack2Name() { return this->attack2Name; }
+	std::string getAttack3Name() { return this->attack3Name; }
+
+};
+
+class Mewtwo : public Pokemon {		
+private:
+	string attack1Name;
+	string attack2Name;
+	string attack3Name;
+	Element* element;
+public:
+	Mewtwo() : 					
+		Pokemon("Mewtwo", 130) {
+		this->attack1Name = "Psyjack";
+		this->attack2Name = "Break Burn";
+		this->attack3Name = "Critical Psyjack";
+		this->element = new Psychic();
+	}
+	~Mewtwo() {
+		delete element;
+		element = NULL;
+	}
+
+	Element* getElement() { return this->element; }
+	std::string getAttack1Name() { return this->attack1Name; }
+	std::string getAttack2Name() { return this->attack2Name; }
+	std::string getAttack3Name() { return this->attack3Name; }
+
+};
+
+class Gengar : public Pokemon {		// <-- Name your pokemon
+private:
+	string attack1Name;
+	string attack2Name;
+	string attack3Name;
+	Element* element;
+public:
+	Gengar() : 				
+		Pokemon("Gengar", 100) {
+		this->attack1Name = "Cursed Reasction";
+		this->attack2Name = "Super Psy Bolt";
+		this->attack3Name = "Critical Super Psy Bolt";
+		this->element = new Psychic();
+	}
+	~Gengar() {
+		delete element;
+		element = NULL;
+	}
+
+	Element* getElement() { return this->element; }
+	std::string getAttack1Name() { return this->attack1Name; }
+	std::string getAttack2Name() { return this->attack2Name; }
+	std::string getAttack3Name() { return this->attack3Name; }
+
+};
+
+/**
+ * End of Jordan's Pokémon
+ * */
 
 
 /**
@@ -216,7 +290,6 @@ private:
 	string attack3Name;
 	Element* element;
 public:
-	/// <param name = "None"> No parameters </param>
 	_____________() : 									// <-- Add the name of your pokemon to the constructor
 	Pokemon("_________", __) {					// input name of pokemon as first parameter(string), total HP in second parameter (int)
 		this->attack1Name = "___________";		// <-- input the name of first attack; string type (string )

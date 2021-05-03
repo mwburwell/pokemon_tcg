@@ -15,10 +15,11 @@ int main() {
 	std::vector<Pokemon*> pokemonDeck;
 	pokemonDeck.push_back(new Geodude());
 	pokemonDeck.push_back(new Squirtle());
+	pokemonDeck.push_back(new Mew());
 
 	std::vector<Pokemon*>::iterator it;
 	for(it = pokemonDeck.begin(); it != pokemonDeck.end(); it++){
-		std::cout << *it<< std::endl;
+		std::cout << *it << std::endl;
 	}
 
 	return 0;
