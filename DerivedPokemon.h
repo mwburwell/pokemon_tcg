@@ -15,14 +15,7 @@
 /// <summary>
 /// <para>Squirtle - BASIC </para>
 /// <para>Max HP: 50</para>
-/// <para>Attack1 - Bubble, 0 hitpoints, 1 water, 0 colorlesss, can cause paralysis</para>
-/// <para>Attack2 - WaterGun, 20 hitpoints, 1 water, 1 colorless</para>
 /// <para>Element Type: Water</para>
-/// <para>Weakness: Lightning</para>
-/// <para>Resistance: None</para>
-/// </summary>
-/// <param name = "None"> None </param>
-/// <returns> A Squirtle </returns>
 class Squirtle : public Pokemon {
 private:
 	string attack1Name;
@@ -54,15 +47,8 @@ public:
 /// <summary>
 /// <para>Wartortle - STAGE_1 </para>
 /// <para>Max HP: 80</para>
-/// <para>Attack1 - Bubble, 20 hitpoints, 1 water, 1 colorlesss, can cause paralysis</para>
-/// <para>Attack2 - WaterGun, 50 hitpoints, 1 water, 2 colorless</para>
-/// <para>Attack3 - NULL</para>
 /// <para>Element Type: Water</para>
 /// <para>Weakness: Lightning</para>
-/// <para>Resistance: None</para>
-/// </summary>
-/// <param name = "None"> None </param>
-/// <returns> A Squirtle </returns>j
 class Wartortle : public Pokemon {
 private:
 	string attack1Name;
@@ -93,15 +79,8 @@ public:
 /// <summary>
 /// <para>Blastoise - STAGE_2 </para>
 /// <para>Max HP: 180</para>
-/// <para>Attack1 - </para>
-/// <para>Attack2 - </para>
-/// <para>Attack3 - NULL</para>
 /// <para>Element Type: Water</para>
 /// <para>Weakness: Lightning</para>
-/// <para>Resistance: None</para>
-/// </summary>
-/// <param name = "None"> None </param>
-/// <returns> A Blastoise </returns>
 class Blastoise : public Pokemon {
 private:
 	string attack1Name;
@@ -132,15 +111,7 @@ public:
 /// <summary>
 /// <para>Eevee - BASIC </para>
 /// <para>Max HP: 80</para>
-/// <para>Attack1 - </para>
-/// <para>Attack2 - </para>
-/// <para>Attack3 - NULL</para>
 /// <para>Element Type: Colorless</para>
-/// <para>Weakness: Fighting</para>
-/// <para>Resistance: None</para>
-/// </summary>
-/// <param name = "None"> None </param>
-/// <returns> An Eevee </returns>
 class Eevee : public Pokemon {
 private:
 	string attack1Name;
@@ -248,7 +219,7 @@ public:
 
 };
 
-class Gengar : public Pokemon {		// <-- Name your pokemon
+class Gengar : public Pokemon {
 private:
 	string attack1Name;
 	string attack2Name;
@@ -290,7 +261,7 @@ private:
 	string attack3Name;
 	Element* element;
 public:
-	_____________() : 									// <-- Add the name of your pokemon to the constructor
+	_____________() : 							// <-- Add the name of your pokemon to the constructor
 	Pokemon("_________", __) {					// input name of pokemon as first parameter(string), total HP in second parameter (int)
 		this->attack1Name = "___________";		// <-- input the name of first attack; string type (string )
 		this->attack2Name = "___________";		// <-- input the name of second attack; string type (string )
